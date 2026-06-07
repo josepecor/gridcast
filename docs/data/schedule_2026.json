@@ -1,0 +1,204 @@
+{
+  "season": 2026,
+  "n_rounds": 22,
+  "rounds": [
+    {
+      "round": 1,
+      "race_name": "Australian Grand Prix",
+      "circuit_id": "albert_park",
+      "circuit_name": "Albert Park Grand Prix Circuit",
+      "date": "2026-03-08",
+      "has_sprint": false,
+      "completed": true
+    },
+    {
+      "round": 2,
+      "race_name": "Chinese Grand Prix",
+      "circuit_id": "shanghai",
+      "circuit_name": "Shanghai International Circuit",
+      "date": "2026-03-15",
+      "has_sprint": true,
+      "completed": true
+    },
+    {
+      "round": 3,
+      "race_name": "Japanese Grand Prix",
+      "circuit_id": "suzuka",
+      "circuit_name": "Suzuka Circuit",
+      "date": "2026-03-29",
+      "has_sprint": false,
+      "completed": true
+    },
+    {
+      "round": 4,
+      "race_name": "Miami Grand Prix",
+      "circuit_id": "miami",
+      "circuit_name": "Miami International Autodrome",
+      "date": "2026-05-03",
+      "has_sprint": true,
+      "completed": true
+    },
+    {
+      "round": 5,
+      "race_name": "Canadian Grand Prix",
+      "circuit_id": "villeneuve",
+      "circuit_name": "Circuit Gilles Villeneuve",
+      "date": "2026-05-24",
+      "has_sprint": true,
+      "completed": true
+    },
+    {
+      "round": 6,
+      "race_name": "Monaco Grand Prix",
+      "circuit_id": "monaco",
+      "circuit_name": "Circuit de Monaco",
+      "date": "2026-06-07",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 7,
+      "race_name": "Barcelona Grand Prix",
+      "circuit_id": "catalunya",
+      "circuit_name": "Circuit de Barcelona-Catalunya",
+      "date": "2026-06-14",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 8,
+      "race_name": "Austrian Grand Prix",
+      "circuit_id": "red_bull_ring",
+      "circuit_name": "Red Bull Ring",
+      "date": "2026-06-28",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 9,
+      "race_name": "British Grand Prix",
+      "circuit_id": "silverstone",
+      "circuit_name": "Silverstone Circuit",
+      "date": "2026-07-05",
+      "has_sprint": true,
+      "completed": false
+    },
+    {
+      "round": 10,
+      "race_name": "Belgian Grand Prix",
+      "circuit_id": "spa",
+      "circuit_name": "Circuit de Spa-Francorchamps",
+      "date": "2026-07-19",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 11,
+      "race_name": "Hungarian Grand Prix",
+      "circuit_id": "hungaroring",
+      "circuit_name": "Hungaroring",
+      "date": "2026-07-26",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 12,
+      "race_name": "Dutch Grand Prix",
+      "circuit_id": "zandvoort",
+      "circuit_name": "Circuit Park Zandvoort",
+      "date": "2026-08-23",
+      "has_sprint": true,
+      "completed": false
+    },
+    {
+      "round": 13,
+      "race_name": "Italian Grand Prix",
+      "circuit_id": "monza",
+      "circuit_name": "Autodromo Nazionale di Monza",
+      "date": "2026-09-06",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 14,
+      "race_name": "Spanish Grand Prix",
+      "circuit_id": "madring",
+      "circuit_name": "Madring",
+      "date": "2026-09-13",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 15,
+      "race_name": "Azerbaijan Grand Prix",
+      "circuit_id": "baku",
+      "circuit_name": "Baku City Circuit",
+      "date": "2026-09-26",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 16,
+      "race_name": "Singapore Grand Prix",
+      "circuit_id": "marina_bay",
+      "circuit_name": "Marina Bay Street Circuit",
+      "date": "2026-10-11",
+      "has_sprint": true,
+      "completed": false
+    },
+    {
+      "round": 17,
+      "race_name": "United States Grand Prix",
+      "circuit_id": "americas",
+      "circuit_name": "Circuit of the Americas",
+      "date": "2026-10-25",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 18,
+      "race_name": "Mexico City Grand Prix",
+      "circuit_id": "rodriguez",
+      "circuit_name": "Autódromo Hermanos Rodríguez",
+      "date": "2026-11-01",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 19,
+      "race_name": "Brazilian Grand Prix",
+      "circuit_id": "interlagos",
+      "circuit_name": "Autódromo José Carlos Pace",
+      "date": "2026-11-08",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 20,
+      "race_name": "Las Vegas Grand Prix",
+      "circuit_id": "vegas",
+      "circuit_name": "Las Vegas Strip Street Circuit",
+      "date": "2026-11-22",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 21,
+      "race_name": "Qatar Grand Prix",
+      "circuit_id": "losail",
+      "circuit_name": "Losail International Circuit",
+      "date": "2026-11-29",
+      "has_sprint": false,
+      "completed": false
+    },
+    {
+      "round": 22,
+      "race_name": "Abu Dhabi Grand Prix",
+      "circuit_id": "yas_marina",
+      "circuit_name": "Yas Marina Circuit",
+      "date": "2026-12-06",
+      "has_sprint": false,
+      "completed": false
+    }
+  ]
+}
