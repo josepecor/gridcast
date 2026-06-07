@@ -207,7 +207,6 @@
     .win-val { font-size: 0.8rem; font-variant-numeric: tabular-nums; min-width: 36px; }
 
     .prob-val { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.82rem; }
-    .pts-val  { font-variant-numeric: tabular-nums; font-size: 0.82rem; }
 
     /* Actual result column */
     .pos-badge {
@@ -415,7 +414,6 @@ async function loadJSON(path) {
 }
 
 function pct(v)   { return v != null ? (v * 100).toFixed(1) + '%' : '—'; }
-function pts(v)   { return v != null ? v.toFixed(1)              : '—'; }
 function today()  { return new Date(); }
 
 function daysUntil(dateStr) {
@@ -599,7 +597,6 @@ function renderPredPanel(round, cutoffKey) {
       <td>${winCell}</td>
       <td class="prob-val">${pct(d.podium_prob)}</td>
       <td class="prob-val">${pct(d.points_prob)}</td>
-      <td class="pts-val">${pts(d.expected_points)}</td>
       ${actualCell}
     </tr>`;
   }).join('');
@@ -621,7 +618,6 @@ function renderPredPanel(round, cutoffKey) {
             <th style="text-align:right">P(Victoria)</th>
             <th>P(Podio)</th>
             <th>P(Puntos)</th>
-            <th>Pts esp.</th>
             ${hasActual || !isUpcoming ? '<th>Pos. real</th>' : ''}
           </tr>
         </thead>
