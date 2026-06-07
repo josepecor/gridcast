@@ -1,0 +1,40 @@
+# Asignaciones de componentes de Unidad de Motriz (PU) — F1 2026
+# INVARIANTE: datos fijos del reglamento técnico FIA 2026; no capturar dinámicamente
+# Protegido por tests/test_scoring.py
+
+# Temporada 2026: año de motor nuevo → asignación +1 bonus en ICE/TC/EX
+# MGU-H eliminado del reglamento en 2026
+allocations_2026:
+  ICE:  4    # Motor de combustión interna (3 base + 1 bonus año nuevo motor)
+  TC:   4    # Turbocompresor
+  EX:   4    # Sistema de escape
+  MGU_K: 3   # Motor-Generator Unit Kinetic (2 base + 1 bonus)
+  ES:   3    # Energy Store / batería (2 base + 1 bonus)
+  CE:   3    # Control Electronics (2 base + 1 bonus)
+  MGU_H: 0   # Eliminado en 2026
+
+# Desde 2027 vuelven a las asignaciones estándar sin bonus
+allocations_2027:
+  ICE:  3
+  TC:   3
+  EX:   3
+  MGU_K: 2
+  ES:   2
+  CE:   2
+  MGU_H: 0
+
+# Caja de cambios: 1 por temporada (máx 4 eventos de sustitución sin penalización en 2026)
+gearbox:
+  allowed_per_season: 4
+
+# Un fabricante en su primer año de suministro recibe +1 adicional en todos los componentes
+# Cadillac (motorista propio) es el caso en 2026
+new_supplier_bonus: 1
+
+# Reglas de penalización en parrilla
+penalties:
+  first_extra_element:  10   # puestos de retroceso por el 1er elemento extra de un tipo
+  subsequent_elements:   5   # por cada elemento extra adicional del mismo tipo
+  pit_lane_threshold:   15   # si la sanción acumulada supera este valor → pit lane start
+  # Ejemplo: 2º ICE extra (+10) + 3er ICE extra (+5) = 15 → justo en el límite
+  # Si además toma otro componente extra → fondo de parrilla/pit lane

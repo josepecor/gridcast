@@ -1,0 +1,328 @@
+# Metadatos de circuitos — F1 2026
+# Bahrain (orig. R4) y Arabia Saudí (orig. R5) cancelados por conflicto en Oriente Medio
+# Imola eliminada; debut de Madrid (Madring) en R14
+# Sprint weekends (6): China R2, Miami R4, Canadá R5, Gran Bretaña R9, Países Bajos R12, Singapur R16
+#
+# IMPORTANTE — round_2026 y jolpica_round:
+#   Son valores cacheados del estado actual del calendario (22 rondas).
+#   Si Bahrain o Arabia Saudí se reinsertan, Jolpica renumerará y estos valores
+#   quedarán desactualizados. El módulo ingest/schedule.py SIEMPRE debe
+#   derivar los round numbers del endpoint live de Jolpica, nunca de este fichero.
+#
+# jolpica_id: identificador estable del circuito en la API Jolpica/Ergast.
+#   Es el campo de join fiable aunque cambien los round numbers.
+#
+# power_sensitive: circuito donde la PU marca diferencia (rectas largas)
+# downforce_level: low / medium / high
+# street_circuit: semi-permanente; mayor riesgo de SC/VSC
+# overtaking: easy / medium / hard
+# tyre_deg: low / medium / high
+
+circuits:
+  albert_park:
+    name: "Albert Park Grand Prix Circuit"
+    city: "Melbourne"
+    country: "Australia"
+    jolpica_id: "albert_park"
+    round_2026: 1
+    date_2026: "2026-03-08"
+    weekend_format: normal
+    power_sensitive: false
+    downforce_level: medium
+    street_circuit: false
+    overtaking: medium
+    tyre_deg: medium
+
+  shanghai:
+    name: "Shanghai International Circuit"
+    city: "Shanghai"
+    country: "China"
+    jolpica_id: "shanghai"
+    round_2026: 2
+    date_2026: "2026-03-15"
+    weekend_format: sprint
+    power_sensitive: false
+    downforce_level: medium
+    street_circuit: false
+    overtaking: medium
+    tyre_deg: medium
+
+  suzuka:
+    name: "Suzuka Circuit"
+    city: "Suzuka"
+    country: "Japan"
+    jolpica_id: "suzuka"
+    round_2026: 3
+    date_2026: "2026-03-29"
+    weekend_format: normal
+    power_sensitive: false
+    downforce_level: high
+    street_circuit: false
+    overtaking: hard
+    tyre_deg: high
+
+  miami:
+    name: "Miami International Autodrome"
+    city: "Miami Gardens"
+    country: "USA"
+    jolpica_id: "miami"
+    round_2026: 4
+    date_2026: "2026-05-03"
+    weekend_format: sprint
+    power_sensitive: false
+    downforce_level: medium
+    street_circuit: true
+    overtaking: medium
+    tyre_deg: medium
+
+  montreal:
+    name: "Circuit Gilles Villeneuve"
+    city: "Montreal"
+    country: "Canada"
+    jolpica_id: "villeneuve"
+    round_2026: 5
+    date_2026: "2026-05-24"
+    weekend_format: sprint
+    power_sensitive: true
+    downforce_level: low
+    street_circuit: true
+    overtaking: medium
+    tyre_deg: medium
+
+  monaco:
+    name: "Circuit de Monaco"
+    city: "Monte Carlo"
+    country: "Monaco"
+    jolpica_id: "monaco"
+    round_2026: 6
+    date_2026: "2026-06-07"
+    weekend_format: normal
+    power_sensitive: false
+    downforce_level: high
+    street_circuit: true
+    overtaking: hard
+    tyre_deg: low
+
+  barcelona:
+    name: "Circuit de Barcelona-Catalunya"
+    city: "Montmeló"
+    country: "Spain"
+    jolpica_id: "catalunya"
+    round_2026: 7
+    date_2026: "2026-06-14"
+    weekend_format: normal
+    power_sensitive: false
+    downforce_level: medium
+    street_circuit: false
+    overtaking: medium
+    tyre_deg: high
+
+  red_bull_ring:
+    name: "Red Bull Ring"
+    city: "Spielberg"
+    country: "Austria"
+    jolpica_id: "red_bull_ring"
+    round_2026: 8
+    date_2026: "2026-06-28"
+    weekend_format: normal
+    power_sensitive: true
+    downforce_level: low
+    street_circuit: false
+    overtaking: easy
+    tyre_deg: medium
+
+  silverstone:
+    name: "Silverstone Circuit"
+    city: "Silverstone"
+    country: "Great Britain"
+    jolpica_id: "silverstone"
+    round_2026: 9
+    date_2026: "2026-07-05"
+    weekend_format: sprint
+    power_sensitive: false
+    downforce_level: high
+    street_circuit: false
+    overtaking: medium
+    tyre_deg: high
+
+  spa:
+    name: "Circuit de Spa-Francorchamps"
+    city: "Stavelot"
+    country: "Belgium"
+    jolpica_id: "spa"
+    round_2026: 10
+    date_2026: "2026-07-19"
+    weekend_format: normal
+    power_sensitive: true
+    downforce_level: low
+    street_circuit: false
+    overtaking: easy
+    tyre_deg: medium
+
+  hungaroring:
+    name: "Hungaroring"
+    city: "Mogyoród"
+    country: "Hungary"
+    jolpica_id: "hungaroring"
+    round_2026: 11
+    date_2026: "2026-07-26"
+    weekend_format: normal
+    power_sensitive: false
+    downforce_level: high
+    street_circuit: false
+    overtaking: hard
+    tyre_deg: high
+
+  zandvoort:
+    name: "Circuit Park Zandvoort"
+    city: "Zandvoort"
+    country: "Netherlands"
+    jolpica_id: "zandvoort"
+    round_2026: 12
+    date_2026: "2026-08-23"
+    weekend_format: sprint
+    power_sensitive: false
+    downforce_level: high
+    street_circuit: false
+    overtaking: hard
+    tyre_deg: high
+
+  monza:
+    name: "Autodromo Nazionale di Monza"
+    city: "Monza"
+    country: "Italy"
+    jolpica_id: "monza"
+    round_2026: 13
+    date_2026: "2026-09-06"
+    weekend_format: normal
+    power_sensitive: true
+    downforce_level: low
+    street_circuit: false
+    overtaking: easy
+    tyre_deg: low
+
+  madrid:
+    name: "Madring"
+    city: "Madrid"
+    country: "Spain"
+    jolpica_id: "madring"
+    round_2026: 14
+    date_2026: "2026-09-13"
+    weekend_format: normal
+    power_sensitive: false
+    downforce_level: medium
+    street_circuit: true
+    overtaking: medium
+    tyre_deg: medium
+
+  baku:
+    name: "Baku City Circuit"
+    city: "Baku"
+    country: "Azerbaijan"
+    jolpica_id: "baku"
+    round_2026: 15
+    date_2026: "2026-09-26"
+    weekend_format: normal
+    power_sensitive: true
+    downforce_level: low
+    street_circuit: true
+    overtaking: medium
+    tyre_deg: low
+
+  singapore:
+    name: "Marina Bay Street Circuit"
+    city: "Singapore"
+    country: "Singapore"
+    jolpica_id: "marina_bay"
+    round_2026: 16
+    date_2026: "2026-10-11"
+    weekend_format: sprint
+    power_sensitive: false
+    downforce_level: high
+    street_circuit: true
+    overtaking: hard
+    tyre_deg: medium
+
+  cota:
+    name: "Circuit of the Americas"
+    city: "Austin"
+    country: "USA"
+    jolpica_id: "americas"
+    round_2026: 17
+    date_2026: "2026-10-25"
+    weekend_format: normal
+    power_sensitive: false
+    downforce_level: medium
+    street_circuit: false
+    overtaking: medium
+    tyre_deg: medium
+
+  mexico_city:
+    name: "Autódromo Hermanos Rodríguez"
+    city: "Mexico City"
+    country: "Mexico"
+    jolpica_id: "rodriguez"
+    round_2026: 18
+    date_2026: "2026-11-01"
+    weekend_format: normal
+    power_sensitive: true
+    downforce_level: low
+    street_circuit: false
+    overtaking: medium
+    tyre_deg: low
+
+  interlagos:
+    name: "Autódromo José Carlos Pace"
+    city: "São Paulo"
+    country: "Brazil"
+    jolpica_id: "interlagos"
+    round_2026: 19
+    date_2026: "2026-11-08"
+    weekend_format: normal
+    power_sensitive: false
+    downforce_level: medium
+    street_circuit: false
+    overtaking: easy
+    tyre_deg: medium
+
+  las_vegas:
+    name: "Las Vegas Strip Street Circuit"
+    city: "Paradise"
+    country: "USA"
+    jolpica_id: "vegas"
+    round_2026: 20
+    date_2026: "2026-11-22"
+    weekend_format: normal
+    power_sensitive: true
+    downforce_level: low
+    street_circuit: true
+    overtaking: medium
+    tyre_deg: low
+
+  lusail:
+    name: "Losail International Circuit"
+    city: "Lusail"
+    country: "Qatar"
+    jolpica_id: "losail"
+    round_2026: 21
+    date_2026: "2026-11-29"
+    weekend_format: normal
+    power_sensitive: false
+    downforce_level: high
+    street_circuit: false
+    overtaking: medium
+    tyre_deg: high
+
+  yas_marina:
+    name: "Yas Marina Circuit"
+    city: "Abu Dhabi"
+    country: "UAE"
+    jolpica_id: "yas_marina"
+    round_2026: 22
+    date_2026: "2026-12-06"
+    weekend_format: normal
+    power_sensitive: false
+    downforce_level: medium
+    street_circuit: false
+    overtaking: medium
+    tyre_deg: low

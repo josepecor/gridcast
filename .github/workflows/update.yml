@@ -1,0 +1,123 @@
+name: update
+
+on:
+  schedule:
+    - cron: '0 10 * * 1'   # lunes 10:00 UTC — Jolpica ya tiene resultados del domingo
+
+  workflow_dispatch:
+    inputs:
+      round:
+        description: 'Ronda a ingestar (vacío = todas las completadas)'
+        required: false
+        default: ''
+      force:
+        description: 'Re-ingestar aunque ya esté en cache (true/false)'
+        required: false
+        default: 'false'
+
+concurrency:
+  group: gridcast-update
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    env:
+      SEASON: '2026'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        run: pip install --quiet uv
+
+      - name: Install dependencies
+        run: uv sync --no-dev
+
+      - name: Restore FastF1 cache
+        uses: actions/cache@v4
+        with:
+          path: data/raw/fastf1_cache
+          key: fastf1-${{ env.SEASON }}-${{ github.run_id }}
+          restore-keys: fastf1-${{ env.SEASON }}-
+
+      # ── Pipeline ──────────────────────────────────────────────────────
+
+      - name: 01 · Ingesta
+        run: |
+          ROUND_FLAG=""
+          FORCE_FLAG=""
+          [ -n "${{ inputs.round }}" ] && ROUND_FLAG="--round ${{ inputs.round }}"
+          [ "${{ inputs.force }}" = "true" ] && FORCE_FLAG="--force"
+          uv run python pipelines/01_ingest.py --season $SEASON $ROUND_FLAG $FORCE_FLAG
+
+      - name: 02 · Features
+        run: uv run python pipelines/02_build_features.py --season $SEASON
+
+      - name: 03 · Snapshots + predicciones pre-fp1
+        run: uv run python pipelines/03_freeze_history.py --season $SEASON --force-predict
+
+      - name: 03 · Predicciones post-q
+        run: uv run python pipelines/03_post_q.py --season $SEASON --force-predict
+
+      - name: 03 · Predicciones post-sprint
+        run: uv run python pipelines/03_post_sprint.py --season $SEASON --force-predict
+
+      - name: Detectar última ronda completada
+        id: last
+        run: |
+          ROUND=$(uv run python - <<'EOF'
+          import sys; sys.path.insert(0, 'src')
+          from datetime import date
+          from gridcast.ingest.jolpica_client import get_schedule
+          s = get_schedule(2026)
+          completed = [r.round for r in s if r.date < date.today()]
+          print(max(completed) if completed else 0)
+          EOF
+          )
+          echo "round=$ROUND" >> $GITHUB_OUTPUT
+
+      - name: 04 · Ajuste del modelo
+        if: steps.last.outputs.round != '0'
+        run: uv run python pipelines/04_fit_models.py --as-of-round ${{ steps.last.outputs.round }}
+
+      - name: 05 · Simulación del campeonato
+        if: steps.last.outputs.round != '0'
+        run: uv run python pipelines/05_simulate_championship.py --as-of-round ${{ steps.last.outputs.round }} --n-sims 30000
+
+      - name: Export JSON → GitHub Pages
+        run: uv run python scripts/export_to_json.py --season $SEASON
+
+      # ── Commit solo docs/data/ ─────────────────────────────────────
+
+      - name: Commit y push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/
+          git diff --staged --quiet && echo "Sin cambios" && exit 0
+          git commit -m "data: update round ${{ steps.last.outputs.round }} — predictions + championship sim"
+          git push
+
+      # ── Resumen ───────────────────────────────────────────────────
+
+      - name: Job summary
+        if: always()
+        run: |
+          echo "## GridCast $SEASON — R${{ steps.last.outputs.round }}" >> $GITHUB_STEP_SUMMARY
+          echo "Fecha: $(date -u +%Y-%m-%d)" >> $GITHUB_STEP_SUMMARY
+          if [ -f docs/data/manifest.json ]; then
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            cat docs/data/manifest.json >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi

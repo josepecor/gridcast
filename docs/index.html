@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GridCast · F1 2026</title>
+  <style>
+    :root {
+      --bg:       #0f0f13;
+      --surface:  #1a1a22;
+      --surface2: #22222e;
+      --border:   #2e2e3e;
+      --text:     #e8e8f0;
+      --muted:    #7878a0;
+      --accent:   #e10600;
+      --green:    #22c55e;
+      --yellow:   #eab308;
+
+      /* team colours (used as left-border accent) */
+      --mclaren:      #ff8000;
+      --red_bull:     #3671c6;
+      --ferrari:      #e8002d;
+      --mercedes:     #27f4d2;
+      --williams:     #00a0de;
+      --aston_martin: #358c75;
+      --rb:           #5e8faa;
+      --alpine:       #0093cc;
+      --haas:         #b6babd;
+      --audi:         #c1c100;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── Header ─────────────────────────────────────────── */
+    header {
+      background: var(--surface);
+      border-bottom: 2px solid var(--accent);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
+    .logo span { color: var(--accent); }
+    .header-meta { margin-left: auto; color: var(--muted); font-size: 0.8rem; text-align: right; }
+    .demo-badge {
+      display: inline-block;
+      background: #78350f;
+      color: #fde68a;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.1rem 0.5rem;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+      margin-left: 0.5rem;
+    }
+
+    /* ── Tabs ────────────────────────────────────────────── */
+    .tabs {
+      display: flex;
+      gap: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--text); border-bottom-color: var(--accent); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Layout ──────────────────────────────────────────── */
+    .layout { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+
+    /* ── GP Tab ──────────────────────────────────────────── */
+    .gp-container {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    /* Round list sidebar */
+    .round-list {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .round-list-header {
+      padding: 0.6rem 0.875rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .round-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.875rem;
+      cursor: pointer;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s;
+    }
+    .round-item:last-child { border-bottom: none; }
+    .round-item:hover { background: var(--surface2); }
+    .round-item.active { background: var(--surface2); border-left: 2px solid var(--accent); }
+    .round-item.upcoming { opacity: 0.7; }
+    .round-num { font-size: 0.7rem; color: var(--muted); min-width: 22px; }
+    .round-name { font-size: 0.8rem; flex: 1; }
+    .round-badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+    }
+    .round-badge.next     { background: #1d4ed8; color: #bfdbfe; }
+    .round-badge.done     { background: #14532d; color: #bbf7d0; }
+    .round-badge.upcoming { background: var(--surface2); color: var(--muted); }
+
+    /* Prediction panel */
+    .pred-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .pred-header {
+      padding: 0.875rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .pred-title { font-size: 1rem; font-weight: 600; }
+    .pred-meta  { font-size: 0.75rem; color: var(--muted); }
+    .cutoff-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      background: var(--surface2);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    /* Driver prediction table */
+    .pred-table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.45rem 0.75rem; text-align: right; }
+    th:first-child, td:first-child { text-align: left; }
+    th {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+      white-space: nowrap;
+    }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--surface2); }
+
+    .driver-cell { display: flex; align-items: center; gap: 0.5rem; }
+    .team-bar { width: 3px; height: 1.1rem; border-radius: 2px; flex-shrink: 0; }
+    .driver-name { font-weight: 500; }
+    .team-name { font-size: 0.72rem; color: var(--muted); }
+
+    /* Win probability inline bar */
+    .win-cell { display: flex; align-items: center; justify-content: flex-end; gap: 0.5rem; }
+    .win-bar-bg {
+      width: 80px;
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .win-bar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+    .win-val { font-size: 0.8rem; font-variant-numeric: tabular-nums; min-width: 36px; }
+
+    .prob-val { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.82rem; }
+    .pts-val  { font-variant-numeric: tabular-nums; font-size: 0.82rem; }
+
+    /* Actual result column */
+    .pos-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .pos-badge.p1 { background: #d97706; color: #fff; }
+    .pos-badge.p2 { background: #6b7280; color: #fff; }
+    .pos-badge.p3 { background: #92400e; color: #fff; }
+    .pos-badge.other { background: var(--surface2); color: var(--muted); }
+
+    /* ── Championship tabs ───────────────────────────────── */
+    .champ-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      max-width: 680px;
+    }
+    .champ-row {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: grid;
+      grid-template-columns: 28px 1fr 120px 90px;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 1rem;
+    }
+    .champ-pos { color: var(--muted); font-size: 0.8rem; text-align: right; }
+    .champ-name { font-weight: 500; display: flex; align-items: center; gap: 0.5rem; }
+    .champ-name-text { display: flex; flex-direction: column; gap: 0.1rem; }
+    .champ-name-label { font-weight: 500; font-size: 0.9rem; }
+    .champ-name-team  { font-size: 0.72rem; color: var(--muted); }
+    .champ-sub  { font-size: 0.72rem; color: var(--muted); }
+
+    .champ-bar-wrap { position: relative; height: 6px; background: var(--border); border-radius: 3px; }
+    .champ-bar-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 3px; background: var(--accent); }
+
+    .champ-pct { text-align: right; font-size: 0.88rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .champ-pct.high { color: var(--accent); }
+    .champ-pct.med  { color: var(--yellow); }
+    .champ-pct.low  { color: var(--muted); }
+
+    /* ── Cutoff sub-tabs ─────────────────────────────────── */
+    .cutoff-tabs {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.25rem;
+    }
+    .cutoff-tab-btn {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.3;
+      transition: background 0.1s, color 0.1s, border-color 0.1s;
+    }
+    .cutoff-tab-btn:hover { color: var(--text); background: var(--border); }
+    .cutoff-tab-btn.active {
+      background: #1e1e30;
+      border-color: var(--accent);
+      color: var(--text);
+    }
+    .cutoff-tab-time {
+      font-size: 0.62rem;
+      font-weight: 400;
+      color: var(--muted);
+      opacity: 0.8;
+    }
+    .cutoff-tab-btn.active .cutoff-tab-time { opacity: 1; }
+
+    /* ── Misc ────────────────────────────────────────────── */
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .empty-state {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 2.5rem;
+      text-align: center;
+      color: var(--muted);
+    }
+    .loading { color: var(--muted); padding: 1rem 0; font-style: italic; }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .gp-container { grid-template-columns: 1fr; }
+      .round-list { display: none; }  /* simplificación móvil */
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Grid<span>Cast</span></div>
+  <div class="header-meta">
+    <span id="header-season">F1 2026</span> ·
+    <span id="header-round">—</span> ·
+    <span id="header-date">—</span>
+    <span class="demo-badge" id="demo-badge" style="display:none">DEMO</span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="gp">Predicciones GP</button>
+  <button class="tab-btn"        data-tab="drivers">Campeonato Pilotos</button>
+  <button class="tab-btn"        data-tab="teams">Campeonato Equipos</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════ GP TAB -->
+<div id="tab-gp" class="tab-panel active">
+  <div class="layout">
+    <div class="gp-container">
+      <aside>
+        <div class="round-list" id="round-list">
+          <div class="round-list-header">Rondas</div>
+          <div class="loading">Cargando…</div>
+        </div>
+      </aside>
+      <main>
+        <div class="pred-panel" id="pred-panel">
+          <div class="loading" style="padding:2rem">Cargando predicción…</div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ DRIVERS TAB -->
+<div id="tab-drivers" class="tab-panel">
+  <div class="layout">
+    <p class="section-title">Probabilidad de título — Pilotos · R<span id="drivers-round">—</span></p>
+    <div class="champ-grid" id="drivers-grid">
+      <div class="loading">Cargando…</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ TEAMS TAB -->
+<div id="tab-teams" class="tab-panel">
+  <div class="layout">
+    <p class="section-title">Probabilidad de título — Equipos · R<span id="teams-round">—</span></p>
+    <div class="champ-grid" id="teams-grid">
+      <div class="loading">Cargando…</div>
+    </div>
+  </div>
+</div>
+
+<footer>GridCast · Predicciones probabilísticas F1 2026 · Datos del pipeline oficial</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// Config
+// ─────────────────────────────────────────────────────────────────────────────
+const SEASON = 2026;
+const RACE_WEEKEND_DAYS_BEFORE = 4;   // Mostramos predicción del próximo GP si estamos ≤ N días antes
+
+const TEAM_COLOR = {
+  mclaren: '#ff8000', red_bull: '#3671c6', ferrari: '#e8002d',
+  mercedes: '#27f4d2', williams: '#00a0de', aston_martin: '#358c75',
+  rb: '#5e8faa', alpine: '#0093cc', haas: '#b6babd', audi: '#c1c100',
+  cadillac: '#cc0000',
+};
+const TEAM_LABEL = {
+  mclaren: 'McLaren', red_bull: 'Red Bull', ferrari: 'Ferrari',
+  mercedes: 'Mercedes', williams: 'Williams', aston_martin: 'Aston Martin',
+  rb: 'RB', alpine: 'Alpine', haas: 'Haas', audi: 'Audi', cadillac: 'Cadillac',
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Utils
+// ─────────────────────────────────────────────────────────────────────────────
+async function loadJSON(path) {
+  const r = await fetch(path);
+  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  return r.json();
+}
+
+function pct(v)   { return v != null ? (v * 100).toFixed(1) + '%' : '—'; }
+function pts(v)   { return v != null ? v.toFixed(1)              : '—'; }
+function today()  { return new Date(); }
+
+function daysUntil(dateStr) {
+  const d = new Date(dateStr);
+  return Math.round((d - today()) / 86400000);
+}
+
+function posBadge(pos) {
+  if (pos == null) return '<span style="color:var(--muted)">—</span>';
+  const cls = pos === 1 ? 'p1' : pos === 2 ? 'p2' : pos === 3 ? 'p3' : 'other';
+  return `<span class="pos-badge ${cls}">${pos}</span>`;
+}
+
+function teamBar(teamId) {
+  const color = TEAM_COLOR[teamId] || '#555';
+  return `<div class="team-bar" style="background:${color}"></div>`;
+}
+
+function cutoffLabel(cutoff) {
+  return cutoff === 'post-q' ? 'Post-Q' : 'Pre-FP1';
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Tabs
+// ─────────────────────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GP Tab
+// ─────────────────────────────────────────────────────────────────────────────
+let allPredictions = [];
+let scheduleRounds = [];
+let activeRound    = null;
+let activeCutoff   = null;
+
+const CUTOFF_ORDER = ['post-q', 'post-sprint', 'pre-fp1'];   // más informativo primero → default
+
+function getDefaultCutoff(pred) {
+  if (!pred || !pred.cutoffs) return null;
+  for (const k of CUTOFF_ORDER) { if (pred.cutoffs[k]) return k; }
+  return Object.keys(pred.cutoffs)[0] || null;
+}
+
+const CUTOFF_DISPLAY_ORDER = ['pre-fp1', 'post-sprint', 'post-q'];  // cronológico para los tabs
+
+function cutoffFullLabel(k) {
+  if (k === 'pre-fp1')     return 'Pre-FP1';
+  if (k === 'post-sprint') return 'Post-Sprint';
+  if (k === 'post-q')      return 'Post-Clasificación';
+  return k;
+}
+
+function selectDefaultRound() {
+  // ¿Estamos dentro del fin de semana de alguna carrera?
+  const inWeekend = scheduleRounds.find(r => {
+    const d = daysUntil(r.date);
+    return d >= -1 && d <= RACE_WEEKEND_DAYS_BEFORE;
+  });
+  if (inWeekend) return inWeekend.round;
+
+  // Último completado con predicción disponible
+  const predRounds = new Set(allPredictions.map(p => p.round));
+  const completed  = scheduleRounds.filter(r => r.completed && predRounds.has(r.round));
+  if (completed.length) return completed[completed.length - 1].round;
+
+  // Próxima ronda con predicción
+  const upcoming = scheduleRounds.find(r => !r.completed && predRounds.has(r.round));
+  if (upcoming) return upcoming.round;
+
+  return null;
+}
+
+function renderRoundList() {
+  const el      = document.getElementById('round-list');
+  const predSet = new Set(allPredictions.map(p => p.round));
+
+  // El calendario es la fuente de verdad — todas las rondas aparecen
+  const items = scheduleRounds.map(r => {
+    const hasPred = predSet.has(r.round);
+    const d       = daysUntil(r.date);
+
+    let badgeTxt, badgeCls;
+    if (!r.completed && d >= 0 && d <= RACE_WEEKEND_DAYS_BEFORE) {
+      badgeTxt = 'EN CURSO'; badgeCls = 'next';
+    } else if (r.completed) {
+      badgeTxt = 'R' + r.round; badgeCls = 'done';
+    } else {
+      badgeTxt = 'R' + r.round; badgeCls = 'upcoming';
+    }
+
+    const isActive   = r.round === activeRound;
+    const shortName  = r.race_name.replace(' Grand Prix','').replace(' GP','');
+    const clickable  = hasPred ? `onclick="switchRound(${r.round})"` : '';
+    const noPredAttr = hasPred ? '' : 'style="opacity:0.4;cursor:default"';
+
+    return `<div class="round-item ${isActive ? 'active' : ''} ${!r.completed ? 'upcoming' : ''}"
+                 ${clickable} ${noPredAttr}>
+      <span class="round-num">${r.round}</span>
+      <span class="round-name">${shortName}</span>
+      <span class="round-badge ${badgeCls}">${badgeTxt}</span>
+    </div>`;
+  }).join('');
+
+  el.innerHTML = `<div class="round-list-header">Rondas</div>${items}`;
+}
+
+function renderPredPanel(round, cutoffKey) {
+  const pred  = allPredictions.find(p => p.round === round);
+  const el    = document.getElementById('pred-panel');
+
+  if (!pred || !pred.cutoffs) {
+    el.innerHTML = `<div class="empty-state">Sin predicción disponible para esta ronda.</div>`;
+    return;
+  }
+
+  // Resolve which cutoff to show
+  const availableCutoffs = Object.keys(pred.cutoffs);
+  if (!cutoffKey || !pred.cutoffs[cutoffKey]) cutoffKey = getDefaultCutoff(pred);
+  activeCutoff = cutoffKey;
+
+  const cutoffData = pred.cutoffs[cutoffKey];
+  const drivers    = cutoffData.drivers;
+  const isUpcoming = !pred.completed;
+  const hasActual  = drivers.some(d => d.actual_position != null);
+  const maxWin     = Math.max(...drivers.map(d => d.win_prob));
+
+  // Cutoff selector (shown only when >1 cutoff available)
+  let cutoffSelector = '';
+  if (availableCutoffs.length > 1) {
+    const tabs = CUTOFF_DISPLAY_ORDER
+      .filter(k => pred.cutoffs[k])
+      .map(k => {
+        const ts = pred.cutoffs[k].generated_at || '';
+        const isActive = k === cutoffKey;
+        return `<button class="cutoff-tab-btn ${isActive ? 'active' : ''}"
+                        onclick="switchCutoff(${round}, '${k}')">
+          ${cutoffFullLabel(k)}
+          ${ts ? `<span class="cutoff-tab-time">${ts}</span>` : ''}
+        </button>`;
+      }).join('');
+    cutoffSelector = `<div class="cutoff-tabs">${tabs}</div>`;
+  } else {
+    const ts = cutoffData.generated_at || '';
+    cutoffSelector = `<span class="cutoff-badge">${cutoffFullLabel(cutoffKey)}${ts ? ` · ${ts}` : ''}</span>`;
+  }
+
+  const headerLabel = isUpcoming
+    ? `<span style="color:var(--green);font-weight:600">EN CURSO · ${pred.race_date}</span>`
+    : hasActual
+      ? `<span style="color:var(--muted)">Predicción vs resultado real</span>`
+      : `<span style="color:var(--muted)">Sin resultados reales todavía — ejecuta el pipeline</span>`;
+
+  const rows = drivers.map(d => {
+    const barWidth = ((d.win_prob / maxWin) * 80).toFixed(1);
+    const color    = TEAM_COLOR[d.team] || '#555';
+    const winCell  = `
+      <div class="win-cell">
+        <div class="win-bar-bg"><div class="win-bar-fill" style="width:${barWidth}px;background:${color}"></div></div>
+        <span class="win-val">${pct(d.win_prob)}</span>
+      </div>`;
+    const actualCell = (hasActual || !isUpcoming)
+      ? `<td style="text-align:center">${posBadge(d.actual_position)}</td>` : '';
+
+    return `<tr>
+      <td>
+        <div class="driver-cell">
+          <div class="team-bar" style="background:${color}"></div>
+          <div>
+            <div class="driver-name">${d.display_name}</div>
+            <div class="team-name">${TEAM_LABEL[d.team] || d.team}</div>
+          </div>
+        </div>
+      </td>
+      <td>${winCell}</td>
+      <td class="prob-val">${pct(d.podium_prob)}</td>
+      <td class="prob-val">${pct(d.points_prob)}</td>
+      <td class="pts-val">${pts(d.expected_points)}</td>
+      ${actualCell}
+    </tr>`;
+  }).join('');
+
+  el.innerHTML = `
+    <div class="pred-header">
+      <div>
+        <div class="pred-title">R${pred.round} · ${pred.race_name}</div>
+        <div class="pred-meta">${pred.circuit || ''}</div>
+        ${cutoffSelector}
+      </div>
+      <div style="margin-left:auto;font-size:0.8rem;text-align:right">${headerLabel}</div>
+    </div>
+    <div class="pred-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Piloto</th>
+            <th style="text-align:right">P(Victoria)</th>
+            <th>P(Podio)</th>
+            <th>P(Puntos)</th>
+            <th>Pts esp.</th>
+            ${hasActual || !isUpcoming ? '<th>Pos. real</th>' : ''}
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+function switchRound(round) {
+  activeRound  = round;
+  activeCutoff = null;   // reset to default for new round
+  renderRoundList();
+  renderPredPanel(round, null);
+}
+
+function switchCutoff(round, cutoffKey) {
+  renderPredPanel(round, cutoffKey);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Championship tabs
+// ─────────────────────────────────────────────────────────────────────────────
+function renderChampGrid(containerId, data, roundSpanId, asOfRound) {
+  const el = document.getElementById(containerId);
+  document.getElementById(roundSpanId).textContent = asOfRound ?? '—';
+
+  if (!data || data.length === 0) {
+    el.innerHTML = '<div class="empty-state">Sin datos disponibles</div>';
+    return;
+  }
+
+  const sorted  = [...data].sort((a, b) => b.value - a.value);
+  const maxProb = sorted[0].value;
+
+  el.innerHTML = sorted.map((row, i) => {
+    const prob    = row.value;
+    const barPct  = maxProb > 0 ? (prob / maxProb * 100).toFixed(1) : 0;
+    const pctCls  = prob >= 0.20 ? 'high' : prob >= 0.05 ? 'med' : 'low';
+    // Para pilotos: row.team y row.display_name vienen del JSON enriquecido.
+    // Para constructores: entity_id ES el team key (mercedes, ferrari…).
+    const teamKey   = row.team || row.entity_id;
+    const teamColor = TEAM_COLOR[teamKey] || '#555';
+    const label     = row.display_name || TEAM_LABEL[row.entity_id] || row.entity_id;
+    const teamLabel = TEAM_LABEL[teamKey] || '';
+
+    return `<div class="champ-row">
+      <div class="champ-pos">${i + 1}</div>
+      <div class="champ-name">
+        <div class="team-bar" style="background:${teamColor}; align-self:stretch; height:auto; min-height:1.1rem"></div>
+        <div class="champ-name-text">
+          <div class="champ-name-label">${label}</div>
+          ${teamLabel ? `<div class="champ-name-team">${teamLabel}</div>` : ''}
+        </div>
+      </div>
+      <div class="champ-bar-wrap">
+        <div class="champ-bar-fill" style="width:${barPct}%;background:${teamColor}"></div>
+      </div>
+      <div class="champ-pct" style="color:${teamColor}">${pct(prob)}</div>
+    </div>`;
+  }).join('');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Init
+// ─────────────────────────────────────────────────────────────────────────────
+async function init() {
+  try {
+    // Cargar todos los datasets en paralelo
+    const [manifest, predData, schedData, champData] = await Promise.allSettled([
+      loadJSON('data/manifest.json'),
+      loadJSON(`data/predictions_${SEASON}.json`),
+      loadJSON(`data/schedule_${SEASON}.json`),
+      loadJSON(`data/championship_${SEASON}.json`),
+    ]);
+
+    // Header meta
+    if (manifest.status === 'fulfilled') {
+      const m = manifest.value;
+      document.getElementById('header-round').textContent = m.championship_round ? `R${m.championship_round}` : '—';
+      document.getElementById('header-date').textContent  = m.updated_at || '—';
+      if (m._note || (predData.value && predData.value._note)) {
+        document.getElementById('demo-badge').style.display = 'inline-block';
+      }
+    }
+
+    // Schedule
+    if (schedData.status === 'fulfilled') {
+      scheduleRounds = schedData.value.rounds || [];
+    }
+
+    // GP tab
+    if (predData.status === 'fulfilled') {
+      allPredictions = predData.value.predictions || [];
+      activeRound    = selectDefaultRound();
+      renderRoundList();
+      if (activeRound) renderPredPanel(activeRound);
+      else document.getElementById('pred-panel').innerHTML =
+        '<div class="empty-state">Sin predicciones disponibles. Ejecuta el pipeline para generar datos.</div>';
+    } else {
+      document.getElementById('pred-panel').innerHTML =
+        '<div class="empty-state">No se pudieron cargar las predicciones.</div>';
+    }
+
+    // Championship tabs
+    if (champData.status === 'fulfilled') {
+      const c = champData.value;
+      renderChampGrid('drivers-grid', c.driver_title_probs,      'drivers-round', c.as_of_round);
+      renderChampGrid('teams-grid',   c.constructor_title_probs, 'teams-round',   c.as_of_round);
+    } else {
+      ['drivers-grid', 'teams-grid'].forEach(id => {
+        document.getElementById(id).innerHTML =
+          '<div class="empty-state">Sin datos de campeonato.</div>';
+      });
+    }
+
+  } catch (err) {
+    console.error('Init error:', err);
+  }
+}
+
+init();
+</script>
+</body>
+</html>

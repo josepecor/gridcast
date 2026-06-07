@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+*.so
+
+# Entorno virtual
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# uv
+.uv/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Claude Code
+.claude/
+
+# FastF1 cache — NUNCA commitear (50-200 MB por sesión, ~5-10 GB por temporada)
+data/raw/fastf1_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/**/*.ipynb
+
+# pytest / coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Datos generados por el pipeline (creados por la GitHub Action, no se commitean)
+data/raw/jolpica/
+data/interim/
+data/processed/
+data/snapshots/
+outputs/
+docs/data/

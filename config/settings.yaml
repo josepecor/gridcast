@@ -1,0 +1,49 @@
+# Configuración global del proyecto f1forecast
+# Validado por src/f1forecast/config.py (pydantic)
+
+season:
+  active: 2026
+  rounds: 22   # Bahrain y Arabia Saudí cancelados (conflicto Oriente Medio)
+  first_round_date: "2026-03-08"   # Australia, Melbourne
+
+simulation:
+  n_sims: 30000
+  seed: 42
+  chunk_size: 1000                  # carreras por batch en season_sim
+  car_development_sigma: 0.4        # σ (s) de incertidumbre de desarrollo del coche.
+                                    # Se samplea una vez por simulación (mismo valor
+                                    # para todas las carreras de esa sim). Modela
+                                    # "¿en qué versión de la temporada estamos?"
+                                    # 0 = sin incertidumbre. Spread real del campo ≈ ±0.3s
+
+paths:
+  data_raw: "data/raw"
+  data_interim: "data/interim"
+  data_processed: "data/processed"
+  snapshots: "data/snapshots"
+  outputs: "outputs"
+  fastf1_cache: "data/raw/fastf1_cache"
+  jolpica_cache: "data/raw/jolpica"
+
+fastf1:
+  # Sesiones que se cargan por defecto para feature engineering
+  load_laps: true
+  load_telemetry: false             # caro en disco; activar solo para análisis puntual
+  log_level: "WARNING"
+
+jolpica:
+  base_url: "https://api.jolpi.ca/ergast/f1"
+  timeout_s: 30
+  max_retries: 3
+
+model:
+  # Hiperparámetros del modelo jerárquico baseline (MixedLM)
+  driver_shrinkage: true            # partial pooling (rookies → media)
+  min_laps_long_run: 5              # mínimo de vueltas para considerar una tanda "larga"
+  fuel_correction_kg_per_lap: 1.6   # corrección de tiempo por kg de gasolina
+  fuel_lap_time_delta_s: 0.035      # segundos por kg (aprox F1 moderno)
+
+backtest:
+  # Política de snapshots point-in-time
+  freeze_on_write: true             # los snapshots son inmutables una vez escritos
+  snapshot_version: "v1"           # cambiar si se regenera el histórico con nuevo modelo
