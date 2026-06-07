@@ -41,10 +41,9 @@ notebooks/**/*.ipynb
 htmlcov/
 .pytest_cache/
 
-# Datos generados por el pipeline (creados por la GitHub Action, no se commitean)
+# Datos generados por el pipeline (creados por la GitHub Action, no se commitean manualmente)
 data/raw/jolpica/
 data/interim/
 data/processed/
 data/snapshots/
 outputs/
-docs/data/
