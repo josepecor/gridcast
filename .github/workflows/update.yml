@@ -64,6 +64,13 @@ jobs:
       - name: 02 · Features
         run: uv run python pipelines/02_build_features.py --season $SEASON
 
+      - name: Verificar artefactos post-02
+        if: always()
+        run: |
+          echo "=== data/processed/ ===" && ls -lh data/processed/ 2>/dev/null || echo "(vacío o no existe)"
+          echo "=== data/interim/ ===" && ls -lh data/interim/ 2>/dev/null || echo "(vacío o no existe)"
+          echo "=== FastF1 cache (primeras entradas) ===" && ls data/raw/fastf1_cache/ 2>/dev/null | head -20 || echo "(vacío)"
+
       - name: 03 · Snapshots + predicciones pre-fp1
         run: uv run python pipelines/03_freeze_history.py --season $SEASON --force-predict
 
@@ -88,11 +95,11 @@ jobs:
           echo "round=$ROUND" >> $GITHUB_OUTPUT
 
       - name: 04 · Ajuste del modelo
-        if: steps.last.outputs.round != '0'
+        if: success() && steps.last.outputs.round != '0'
         run: uv run python pipelines/04_fit_models.py --as-of-round ${{ steps.last.outputs.round }}
 
       - name: 05 · Simulación del campeonato
-        if: steps.last.outputs.round != '0'
+        if: success() && steps.last.outputs.round != '0'
         run: uv run python pipelines/05_simulate_championship.py --as-of-round ${{ steps.last.outputs.round }} --n-sims 30000
 
       - name: Export JSON → GitHub Pages

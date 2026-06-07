@@ -255,8 +255,8 @@ def main() -> None:
         all_features.append(pace)
 
     if not all_features:
-        log.warning("No se generaron features — revisa que 01_ingest.py se ejecutó")
-        return
+        log.error("No se generaron features para ninguna ronda — revisa que 01_ingest.py se ejecutó y que FastF1 tiene datos")
+        sys.exit(1)
 
     # Combinar nuevas features con las existentes de otras rondas.
     # Las rondas procesadas en esta ejecución reemplazan cualquier dato previo.
