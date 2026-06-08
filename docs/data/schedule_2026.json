@@ -54,7 +54,7 @@
       "circuit_name": "Circuit de Monaco",
       "date": "2026-06-07",
       "has_sprint": false,
-      "completed": false
+      "completed": true
     },
     {
       "round": 7,
