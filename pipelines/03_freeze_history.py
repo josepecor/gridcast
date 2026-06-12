@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import shutil
 import sys
 from datetime import date
 from pathlib import Path
@@ -272,14 +273,24 @@ def main() -> None:
     guard = LeakageGuard(schedule)
 
     today = date.today()
-    to_process = [r for r in schedule if r.date <= today]
-    if args.round_ is not None:
-        to_process = [r for r in to_process if r.round == args.round_]
-        if not to_process:
-            log.error("Ronda %d no encontrada o no completada todavía", args.round_)
-            sys.exit(1)
+    completed = [r for r in schedule if r.date <= today]
+    upcoming  = sorted([r for r in schedule if r.date > today], key=lambda r: r.round)
+    next_round = [upcoming[0]] if upcoming else []
 
-    log.info("Rondas a congelar: %s", [r.round for r in to_process])
+    if args.round_ is not None:
+        to_process = [r for r in schedule if r.round == args.round_]
+        if not to_process:
+            log.error("Ronda %d no encontrada en el calendario", args.round_)
+            sys.exit(1)
+    else:
+        to_process = completed + next_round
+
+    log.info(
+        "Rondas a congelar: %s (completadas: %s, próxima: %s)",
+        [r.round for r in to_process],
+        [r.round for r in to_process if r.date <= today],
+        [r.round for r in to_process if r.date > today],
+    )
 
     # Cargar pace_features una vez (puede ser None si pipeline 02 no se ejecutó)
     pace_all = _load_pace_features(season)
@@ -295,6 +306,15 @@ def main() -> None:
 
     created = skipped = 0
     for r in to_process:
+        is_upcoming = r.date > today
+        if is_upcoming:
+            # Snapshots for upcoming rounds are refreshed on every run
+            # (they change each week as new races complete)
+            snap_check = get_snapshot(season, r.round, version)
+            if snap_check.path.exists():
+                shutil.rmtree(snap_check.path)
+                log.info("R%02d (futuro): snapshot anterior eliminado para actualizar", r.round)
+
         try:
             was_created = freeze_round(
                 season, r, schedule, guard, version, pace_all, force=args.force
@@ -318,7 +338,10 @@ def main() -> None:
         log.info("--no-predict: saltando generación de predicciones")
         return
 
-    rounds_with_snapshots = [r.round for r in to_process]
+    completed_round_nums = [r.round for r in to_process if r.date <= today]
+    upcoming_round_nums  = [r.round for r in to_process if r.date > today]
+    rounds_with_snapshots = completed_round_nums + upcoming_round_nums
+
     if not rounds_with_snapshots:
         return
 
@@ -331,11 +354,27 @@ def main() -> None:
         model.version,
     )
     force_predict = getattr(args, "force_predict", False)
-    predictions = replay.run_all(
-        rounds_with_snapshots,
-        skip_frozen=not force_predict,
-        force=force_predict,
-    )
+    predictions: list = []
+
+    if completed_round_nums:
+        predictions += replay.run_all(
+            completed_round_nums,
+            skip_frozen=not force_predict,
+            force=force_predict,
+        )
+
+    if upcoming_round_nums:
+        # Upcoming rounds: snapshot was just refreshed, always regenerate prediction
+        log.info(
+            "Generando predicciones pre-fp1 para %d rondas futuras: %s",
+            len(upcoming_round_nums), upcoming_round_nums,
+        )
+        predictions += replay.run_all(
+            upcoming_round_nums,
+            skip_frozen=False,
+            force=True,
+        )
+
     log.info(
         "=== Replay completado: %d predicciones generadas/cargadas ===",
         len(predictions),

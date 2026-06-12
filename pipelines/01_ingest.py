@@ -181,8 +181,17 @@ def main() -> None:
     if args.round_ is not None:
         completed = [r for r in completed if r.round == args.round_]
         if not completed:
-            log.error("Ronda %d no encontrada o no completada todavía", args.round_)
-            sys.exit(1)
+            in_calendar = any(r.round == args.round_ for r in schedule)
+            if in_calendar:
+                log.warning(
+                    "Ronda %d aún no ha ocurrido — nada que ingestar. "
+                    "Las predicciones pre-fp1 se generan en 03_freeze_history.py.",
+                    args.round_,
+                )
+            else:
+                log.error("Ronda %d no encontrada en el calendario %d", args.round_, season)
+                sys.exit(1)
+            return
 
     if not completed:
         log.warning("No hay rondas completadas — nada que ingestar")
