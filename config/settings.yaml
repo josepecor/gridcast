@@ -46,4 +46,4 @@ model:
 backtest:
   # Política de snapshots point-in-time
   freeze_on_write: true             # los snapshots son inmutables una vez escritos
-  snapshot_version: "v1"           # cambiar si se regenera el histórico con nuevo modelo
+  snapshot_version: "v2"           # v2: intra-team suspect flags + seed fix (2026-06)

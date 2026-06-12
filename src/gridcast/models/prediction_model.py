@@ -210,7 +210,7 @@ class StrengthRaceModel:
                     strengths[i] += scale * (1.0 - 2.0 * (gp - 1) / max(n_d - 1, 1))
 
         rng = np.random.default_rng(
-            np.random.SeedSequence(self._seed).spawn(round_)[0]
+            np.random.SeedSequence([self._seed, round_])
         )
 
         result = simulate_race(

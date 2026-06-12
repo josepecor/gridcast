@@ -29,6 +29,13 @@ log = logging.getLogger(__name__)
 
 _REQUIRED_COLS = {"abbreviation", "team_name", "round"}
 
+# Si un piloto es más de N segundos más lento que su compañero de equipo,
+# el dato se considera sospechoso (¿problema de coche, accidente en sesión?).
+_INTRA_TEAM_SUSPECT_THRESHOLD = {
+    "long_run_pace_s": 3.0,
+    "quali_pace_s":    1.5,
+}
+
 
 def compute_teammate_gaps(pace_features: pd.DataFrame) -> pd.DataFrame:
     """
@@ -139,3 +146,65 @@ def _nan_row(abbreviation: str, round_) -> dict:
         "gap_to_teammate_race":  float("nan"),
         "gap_to_teammate_quali": float("nan"),
     }
+
+
+def flag_intra_team_suspects(pace_features: pd.DataFrame) -> pd.DataFrame:
+    """
+    Añade columnas `long_run_suspect` y `quali_suspect` al DataFrame.
+
+    Para cada par ronda × equipo con exactamente 2 pilotos con datos válidos:
+    si la diferencia entre compañeros supera el umbral (_INTRA_TEAM_SUSPECT_THRESHOLD),
+    el piloto más lento se marca como sospechoso para ese signal.
+
+    El flag indica que el valor de pace de ese piloto puede no reflejar
+    el rendimiento real del coche (ej. coche dañado, sesión comprometida)
+    y no debe usarse como señal intra-equipo en el modelo de fuerza.
+
+    Returns:
+        pace_features con las dos nuevas columnas booleanas añadidas.
+    """
+    df = pace_features.copy()
+    df["long_run_suspect"] = False
+    df["quali_suspect"]    = False
+
+    col_flag_map = {
+        "long_run_pace_s": "long_run_suspect",
+        "quali_pace_s":    "quali_suspect",
+    }
+
+    for signal_col, flag_col in col_flag_map.items():
+        if signal_col not in df.columns:
+            continue
+        threshold = _INTRA_TEAM_SUSPECT_THRESHOLD[signal_col]
+
+        for (round_, team), group in df.groupby(["round", "team_name"]):
+            valid = group.dropna(subset=[signal_col])
+            if len(valid) != 2:
+                continue
+
+            a, b = valid.iloc[0], valid.iloc[1]
+            gap = abs(float(a[signal_col]) - float(b[signal_col]))
+
+            if gap > threshold:
+                slower_abbr = (
+                    a["abbreviation"]
+                    if float(a[signal_col]) > float(b[signal_col])
+                    else b["abbreviation"]
+                )
+                mask = (df["round"] == round_) & (df["abbreviation"] == slower_abbr)
+                df.loc[mask, flag_col] = True
+                log.warning(
+                    "R%02d %s: gap intra-equipo %.2fs en %s (umbral %.1fs) — "
+                    "%s marcado como suspect",
+                    round_, team, gap, signal_col, threshold, slower_abbr,
+                )
+
+    n_lr = int(df["long_run_suspect"].sum())
+    n_q  = int(df["quali_suspect"].sum())
+    if n_lr or n_q:
+        log.warning(
+            "Flags suspect totales: long_run=%d, quali=%d",
+            n_lr, n_q,
+        )
+
+    return df

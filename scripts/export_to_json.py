@@ -331,6 +331,49 @@ def _read_prediction_dir(
     }
 
 
+def _build_data_warnings(season: int) -> list[dict]:
+    """
+    Lee pace_features_{season}.parquet y devuelve los registros sospechosos.
+
+    Cada warning tiene: round, driver, signal ("long_run" | "quali"), value.
+    Devuelve [] si no hay flags o el parquet no existe.
+    """
+    cfg = get_settings()
+    path = _PROJECT_ROOT / cfg.paths.data_processed / f"pace_features_{season}.parquet"
+    if not path.exists():
+        return []
+
+    try:
+        pf = pd.read_parquet(path)
+    except Exception as exc:
+        log.warning("No se pudo leer pace_features para warnings: %s", exc)
+        return []
+
+    warnings: list[dict] = []
+    signal_map = {
+        "long_run_suspect": ("long_run", "long_run_pace_s"),
+        "quali_suspect":    ("quali",    "quali_pace_s"),
+    }
+
+    for flag_col, (signal_label, value_col) in signal_map.items():
+        if flag_col not in pf.columns:
+            continue
+        flagged = pf[pf[flag_col].fillna(False).astype(bool)].copy()
+        for _, row in flagged.iterrows():
+            val = row.get(value_col)
+            warnings.append({
+                "round":   int(row["round"]),
+                "driver":  str(row["abbreviation"]),
+                "signal":  signal_label,
+                "value_s": round(float(val), 3) if pd.notna(val) else None,
+            })
+
+    warnings.sort(key=lambda w: (w["round"], w["driver"]))
+    if warnings:
+        log.info("data_warnings: %d entradas (datos sospechosos)", len(warnings))
+    return warnings
+
+
 def export_predictions(season: int, schedule_data: dict) -> dict:
     """
     Exporta predicciones desde outputs/predictions/ al formato multi-cutoff del dashboard.
@@ -401,8 +444,11 @@ def export_predictions(season: int, schedule_data: dict) -> dict:
 
         log.info("R%02d: cutoffs exportados: %s", round_, sorted(cutoffs.keys()))
 
+    data_warnings = _build_data_warnings(season)
+
     data = {
         "season": season,
+        "data_warnings": data_warnings,
         "predictions": sorted(predictions, key=lambda p: p["round"]),
     }
     _write_json(data, _DOCS_DATA / f"predictions_{season}.json")

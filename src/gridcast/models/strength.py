@@ -251,6 +251,40 @@ def fit_strength_model(
 # Helpers de validación y limpieza
 # ---------------------------------------------------------------------------
 
+_SUSPECT_COL_MAP: dict[str, str] = {
+    "long_run_pace_s": "long_run_suspect",
+    "quali_pace_s":    "quali_suspect",
+}
+
+
+def _apply_suspect_flags(df: pd.DataFrame, signal_col: str) -> pd.DataFrame:
+    """
+    Nula los valores marcados como suspect por 02_build_features (intra-team check).
+
+    Los suspect flags se generan cuando la diferencia intra-equipo supera el umbral
+    definido en features/teammate_gaps._INTRA_TEAM_SUSPECT_THRESHOLD. Si las columnas
+    no existen (pace antiguo sin flags), devuelve df sin cambios.
+    """
+    suspect_col = _SUSPECT_COL_MAP.get(signal_col)
+    if suspect_col is None or suspect_col not in df.columns:
+        return df
+
+    df = df.copy()
+    mask = df[suspect_col].fillna(False).astype(bool)
+    if mask.any():
+        drivers = (
+            df.loc[mask, "abbreviation"].tolist()
+            if "abbreviation" in df.columns
+            else "?"
+        )
+        log.warning(
+            "%s: %d valor(es) suspect excluidos del ajuste: %s",
+            signal_col, mask.sum(), drivers,
+        )
+        df.loc[mask, signal_col] = float("nan")
+    return df
+
+
 def _drop_pace_outliers(df: pd.DataFrame, signal_col: str) -> pd.DataFrame:
     """
     NaN-ea tiempos de pace claramente inválidos (piloto sin tiempo puesto).
@@ -318,8 +352,11 @@ def _fit_driver_within_team(
         raise ValueError("pace_features debe tener columna 'round'")
     group_cols.append("team_name")
 
-    df = pace_features[group_cols + ["abbreviation", signal_col]].copy()
+    suspect_col = _SUSPECT_COL_MAP.get(signal_col)
+    extra_cols = [suspect_col] if suspect_col and suspect_col in pace_features.columns else []
+    df = pace_features[group_cols + ["abbreviation", signal_col] + extra_cols].copy()
     df = _drop_pace_outliers(df, signal_col)
+    df = _apply_suspect_flags(df, signal_col)
     df = df.dropna(subset=[signal_col, "team_name", "abbreviation"])
     df = df[df["team_name"].astype(str).str.strip() != ""]
 
@@ -395,8 +432,11 @@ def _fit_team_from_pace(
     group_cols = [c for c in ("season", "round") if c in pace_features.columns]
     group_cols.append("team_name")
 
-    df = pace_features[group_cols + [signal_col]].copy()
+    suspect_col = _SUSPECT_COL_MAP.get(signal_col)
+    extra_cols = [suspect_col] if suspect_col and suspect_col in pace_features.columns else []
+    df = pace_features[group_cols + [signal_col] + extra_cols].copy()
     df = _drop_pace_outliers(df, signal_col)
+    df = _apply_suspect_flags(df, signal_col)
     df = df.dropna(subset=[signal_col, "team_name"])
     df = df[df["team_name"].astype(str).str.strip() != ""]
 

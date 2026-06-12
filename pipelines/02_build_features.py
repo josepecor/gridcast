@@ -31,7 +31,7 @@ import pandas as pd
 
 from gridcast.config import get_settings
 from gridcast.features.pace import compute_pace_features
-from gridcast.features.teammate_gaps import compute_teammate_gaps
+from gridcast.features.teammate_gaps import compute_teammate_gaps, flag_intra_team_suspects
 from gridcast.ingest.fastf1_client import get_laps, get_pace_laps
 from gridcast.ingest.jolpica_client import get_schedule
 
@@ -238,10 +238,11 @@ def main() -> None:
             valid_now.set_index("abbreviation")["team_name"].to_dict()
         )
 
-        # Gaps entre compañeros de equipo
+        # Gaps entre compañeros de equipo + flags de calidad
         try:
             gaps = compute_teammate_gaps(pace)
             pace = pace.merge(gaps, on=["abbreviation", "round"], how="left")
+            pace = flag_intra_team_suspects(pace)
             log.info(
                 "  gaps calculados: race=%.0f%% válidos, quali=%.0f%% válidos",
                 pace["gap_to_teammate_race"].notna().mean() * 100,
@@ -251,6 +252,8 @@ def main() -> None:
             log.warning("  compute_teammate_gaps falló: %s", exc)
             pace["gap_to_teammate_race"]  = float("nan")
             pace["gap_to_teammate_quali"] = float("nan")
+            pace["long_run_suspect"] = False
+            pace["quali_suspect"]    = False
 
         all_features.append(pace)
 
