@@ -3381,6 +3381,242 @@
           ]
         }
       }
+    },
+    {
+      "round": 7,
+      "race_name": "Barcelona Grand Prix",
+      "circuit": "Circuit de Barcelona-Catalunya",
+      "race_date": "2026-06-14",
+      "has_sprint": false,
+      "completed": false,
+      "actual_winner": null,
+      "cutoffs": {
+        "pre-fp1": {
+          "generated_at": "2026-06-12",
+          "drivers": [
+            {
+              "driver_id": "LEC",
+              "display_name": "Leclerc",
+              "team": "ferrari",
+              "win_prob": 0.4424,
+              "podium_prob": 0.8645,
+              "points_prob": 1.0,
+              "expected_points": 19.65,
+              "actual_position": null
+            },
+            {
+              "driver_id": "RUS",
+              "display_name": "Russell",
+              "team": "mercedes",
+              "win_prob": 0.1524,
+              "podium_prob": 0.51,
+              "points_prob": 0.9967,
+              "expected_points": 14.12,
+              "actual_position": null
+            },
+            {
+              "driver_id": "ANT",
+              "display_name": "Antonelli",
+              "team": "mercedes",
+              "win_prob": 0.0998,
+              "podium_prob": 0.3802,
+              "points_prob": 0.9882,
+              "expected_points": 12.11,
+              "actual_position": null
+            },
+            {
+              "driver_id": "VER",
+              "display_name": "Verstappen",
+              "team": "red_bull",
+              "win_prob": 0.089,
+              "podium_prob": 0.352,
+              "points_prob": 0.983,
+              "expected_points": 11.59,
+              "actual_position": null
+            },
+            {
+              "driver_id": "PIA",
+              "display_name": "Piastri",
+              "team": "mclaren",
+              "win_prob": 0.0631,
+              "podium_prob": 0.2476,
+              "points_prob": 0.9489,
+              "expected_points": 9.54,
+              "actual_position": null
+            },
+            {
+              "driver_id": "OCO",
+              "display_name": "Ocon",
+              "team": "haas",
+              "win_prob": 0.0366,
+              "podium_prob": 0.1462,
+              "points_prob": 0.8428,
+              "expected_points": 6.76,
+              "actual_position": null
+            },
+            {
+              "driver_id": "GAS",
+              "display_name": "Gasly",
+              "team": "alpine",
+              "win_prob": 0.0244,
+              "podium_prob": 0.1046,
+              "points_prob": 0.7409,
+              "expected_points": 5.32,
+              "actual_position": null
+            },
+            {
+              "driver_id": "HAD",
+              "display_name": "Hadjar",
+              "team": "red_bull",
+              "win_prob": 0.0213,
+              "podium_prob": 0.0943,
+              "points_prob": 0.7009,
+              "expected_points": 4.88,
+              "actual_position": null
+            },
+            {
+              "driver_id": "HAM",
+              "display_name": "Hamilton",
+              "team": "ferrari",
+              "win_prob": 0.0193,
+              "podium_prob": 0.0819,
+              "points_prob": 0.6479,
+              "expected_points": 4.33,
+              "actual_position": null
+            },
+            {
+              "driver_id": "BEA",
+              "display_name": "Bearman",
+              "team": "haas",
+              "win_prob": 0.0136,
+              "podium_prob": 0.0561,
+              "points_prob": 0.5065,
+              "expected_points": 3.16,
+              "actual_position": null
+            },
+            {
+              "driver_id": "HUL",
+              "display_name": "Hulkenberg",
+              "team": "audi",
+              "win_prob": 0.0102,
+              "podium_prob": 0.0424,
+              "points_prob": 0.4102,
+              "expected_points": 2.46,
+              "actual_position": null
+            },
+            {
+              "driver_id": "BOR",
+              "display_name": "Bortoleto",
+              "team": "audi",
+              "win_prob": 0.0076,
+              "podium_prob": 0.0362,
+              "points_prob": 0.3545,
+              "expected_points": 2.1,
+              "actual_position": null
+            },
+            {
+              "driver_id": "COL",
+              "display_name": "Colapinto",
+              "team": "alpine",
+              "win_prob": 0.0057,
+              "podium_prob": 0.0244,
+              "points_prob": 0.2431,
+              "expected_points": 1.4,
+              "actual_position": null
+            },
+            {
+              "driver_id": "LAW",
+              "display_name": "Lawson",
+              "team": "rb",
+              "win_prob": 0.0049,
+              "podium_prob": 0.0196,
+              "points_prob": 0.2167,
+              "expected_points": 1.23,
+              "actual_position": null
+            },
+            {
+              "driver_id": "LIN",
+              "display_name": "Lindblad",
+              "team": "rb",
+              "win_prob": 0.0036,
+              "podium_prob": 0.0138,
+              "points_prob": 0.1462,
+              "expected_points": 0.82,
+              "actual_position": null
+            },
+            {
+              "driver_id": "STR",
+              "display_name": "Stroll",
+              "team": "aston_martin",
+              "win_prob": 0.0031,
+              "podium_prob": 0.0127,
+              "points_prob": 0.1392,
+              "expected_points": 0.77,
+              "actual_position": null
+            },
+            {
+              "driver_id": "NOR",
+              "display_name": "Norris",
+              "team": "mclaren",
+              "win_prob": 0.0007,
+              "podium_prob": 0.0029,
+              "points_prob": 0.0313,
+              "expected_points": 0.18,
+              "actual_position": null
+            },
+            {
+              "driver_id": "PER",
+              "display_name": "Perez",
+              "team": "cadillac",
+              "win_prob": 0.0007,
+              "podium_prob": 0.0032,
+              "points_prob": 0.0371,
+              "expected_points": 0.21,
+              "actual_position": null
+            },
+            {
+              "driver_id": "ALB",
+              "display_name": "Albon",
+              "team": "williams",
+              "win_prob": 0.0006,
+              "podium_prob": 0.0028,
+              "points_prob": 0.0236,
+              "expected_points": 0.14,
+              "actual_position": null
+            },
+            {
+              "driver_id": "SAI",
+              "display_name": "Sainz",
+              "team": "williams",
+              "win_prob": 0.0004,
+              "podium_prob": 0.0014,
+              "points_prob": 0.0109,
+              "expected_points": 0.06,
+              "actual_position": null
+            },
+            {
+              "driver_id": "ALO",
+              "display_name": "Alonso",
+              "team": "aston_martin",
+              "win_prob": 0.0003,
+              "podium_prob": 0.0017,
+              "points_prob": 0.0156,
+              "expected_points": 0.09,
+              "actual_position": null
+            },
+            {
+              "driver_id": "BOT",
+              "display_name": "Bottas",
+              "team": "cadillac",
+              "win_prob": 0.0003,
+              "podium_prob": 0.0014,
+              "points_prob": 0.0159,
+              "expected_points": 0.08,
+              "actual_position": null
+            }
+          ]
+        }
+      }
     }
   ]
 }
