@@ -3085,7 +3085,7 @@
               "podium_prob": 0.2928,
               "points_prob": 0.9622,
               "expected_points": 10.21,
-              "actual_position": 4
+              "actual_position": 5
             },
             {
               "driver_id": "VER",
@@ -3115,7 +3115,7 @@
               "podium_prob": 0.1728,
               "points_prob": 0.8655,
               "expected_points": 7.18,
-              "actual_position": 3
+              "actual_position": 4
             },
             {
               "driver_id": "GAS",
@@ -3125,7 +3125,7 @@
               "podium_prob": 0.0718,
               "points_prob": 0.5694,
               "expected_points": 3.52,
-              "actual_position": 7
+              "actual_position": 3
             },
             {
               "driver_id": "LAW",
@@ -3135,7 +3135,7 @@
               "podium_prob": 0.0366,
               "points_prob": 0.345,
               "expected_points": 1.92,
-              "actual_position": 5
+              "actual_position": 6
             },
             {
               "driver_id": "HUL",
@@ -3155,7 +3155,7 @@
               "podium_prob": 0.0233,
               "points_prob": 0.2181,
               "expected_points": 1.23,
-              "actual_position": 6
+              "actual_position": 7
             },
             {
               "driver_id": "BOR",
@@ -3310,7 +3310,7 @@
               "podium_prob": 0.1076,
               "points_prob": 0.8862,
               "expected_points": 6.73,
-              "actual_position": 4
+              "actual_position": 5
             },
             {
               "driver_id": "NOR",
@@ -3350,7 +3350,7 @@
               "podium_prob": 0.0339,
               "points_prob": 0.5044,
               "expected_points": 2.77,
-              "actual_position": 7
+              "actual_position": 3
             },
             {
               "driver_id": "HAD",
@@ -3360,7 +3360,7 @@
               "podium_prob": 0.0313,
               "points_prob": 0.4578,
               "expected_points": 2.51,
-              "actual_position": 3
+              "actual_position": 4
             },
             {
               "driver_id": "COL",
@@ -3400,7 +3400,7 @@
               "podium_prob": 0.02,
               "points_prob": 0.3348,
               "expected_points": 1.71,
-              "actual_position": 5
+              "actual_position": 6
             },
             {
               "driver_id": "HUL",
@@ -3420,7 +3420,7 @@
               "podium_prob": 0.005,
               "points_prob": 0.0948,
               "expected_points": 0.46,
-              "actual_position": 6
+              "actual_position": 7
             },
             {
               "driver_id": "STR",
