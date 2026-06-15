@@ -63,7 +63,7 @@
       "circuit_name": "Circuit de Barcelona-Catalunya",
       "date": "2026-06-14",
       "has_sprint": false,
-      "completed": false
+      "completed": true
     },
     {
       "round": 8,

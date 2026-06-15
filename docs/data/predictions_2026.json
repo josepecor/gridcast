@@ -180,7 +180,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0177,
               "podium_prob": 0.0839,
               "points_prob": 0.8728,
@@ -199,7 +199,7 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.009,
               "podium_prob": 0.0398,
@@ -230,7 +230,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0042,
               "podium_prob": 0.0218,
               "points_prob": 0.4442,
@@ -240,7 +240,7 @@
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0017,
               "podium_prob": 0.0075,
               "points_prob": 0.1396,
@@ -250,7 +250,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0011,
               "podium_prob": 0.0047,
               "points_prob": 0.1026,
@@ -259,18 +259,18 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0004,
               "points_prob": 0.0076,
               "expected_points": 0.03,
-              "actual_position": 16
+              "actual_position": null
             },
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0,
               "podium_prob": 0.0002,
               "points_prob": 0.0018,
@@ -365,7 +365,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0075,
               "podium_prob": 0.0317,
               "points_prob": 0.6132,
@@ -375,7 +375,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.006,
               "podium_prob": 0.0243,
               "points_prob": 0.5165,
@@ -415,7 +415,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.002,
               "podium_prob": 0.0087,
               "points_prob": 0.2227,
@@ -425,7 +425,7 @@
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0008,
               "podium_prob": 0.0043,
               "points_prob": 0.097,
@@ -434,7 +434,7 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0005,
               "podium_prob": 0.0017,
@@ -465,7 +465,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0004,
               "points_prob": 0.0094,
@@ -474,13 +474,13 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0005,
               "points_prob": 0.0123,
               "expected_points": 0.05,
-              "actual_position": 16
+              "actual_position": null
             },
             {
               "driver_id": "SAI",
@@ -601,7 +601,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0177,
               "podium_prob": 0.0633,
               "points_prob": 0.4882,
@@ -610,13 +610,13 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0124,
               "podium_prob": 0.0436,
               "points_prob": 0.3588,
               "expected_points": 2.25,
-              "actual_position": 11
+              "actual_position": null
             },
             {
               "driver_id": "BEA",
@@ -631,7 +631,7 @@
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0087,
               "podium_prob": 0.0341,
               "points_prob": 0.2963,
@@ -641,7 +641,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0085,
               "podium_prob": 0.0336,
               "points_prob": 0.3082,
@@ -671,7 +671,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0049,
               "podium_prob": 0.018,
               "points_prob": 0.1568,
@@ -711,7 +711,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0002,
               "podium_prob": 0.0006,
               "points_prob": 0.0047,
@@ -730,13 +730,13 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0,
               "podium_prob": 0.0,
               "points_prob": 0.0002,
               "expected_points": 0.0,
-              "actual_position": 15
+              "actual_position": null
             }
           ]
         },
@@ -826,7 +826,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0065,
               "podium_prob": 0.0283,
               "points_prob": 0.4259,
@@ -836,7 +836,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0056,
               "podium_prob": 0.0226,
               "points_prob": 0.3611,
@@ -846,7 +846,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0045,
               "podium_prob": 0.0197,
               "points_prob": 0.3426,
@@ -865,13 +865,13 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0035,
               "podium_prob": 0.0132,
               "points_prob": 0.2332,
               "expected_points": 1.13,
-              "actual_position": 11
+              "actual_position": null
             },
             {
               "driver_id": "BEA",
@@ -896,7 +896,7 @@
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0022,
               "podium_prob": 0.011,
               "points_prob": 0.201,
@@ -926,7 +926,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0002,
               "podium_prob": 0.0008,
               "points_prob": 0.0114,
@@ -945,13 +945,13 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0004,
               "points_prob": 0.01,
               "expected_points": 0.04,
-              "actual_position": 15
+              "actual_position": null
             },
             {
               "driver_id": "SAI",
@@ -1041,7 +1041,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0081,
               "podium_prob": 0.0323,
               "points_prob": 0.5451,
@@ -1061,7 +1061,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.006,
               "podium_prob": 0.0246,
               "points_prob": 0.4416,
@@ -1081,7 +1081,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0038,
               "podium_prob": 0.0146,
               "points_prob": 0.3088,
@@ -1100,18 +1100,18 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0024,
               "podium_prob": 0.0088,
               "points_prob": 0.1838,
               "expected_points": 0.79,
-              "actual_position": 11
+              "actual_position": null
             },
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0018,
               "podium_prob": 0.0086,
               "points_prob": 0.1798,
@@ -1141,7 +1141,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0003,
               "points_prob": 0.0038,
@@ -1170,13 +1170,13 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0,
               "podium_prob": 0.0001,
               "points_prob": 0.0042,
               "expected_points": 0.01,
-              "actual_position": 15
+              "actual_position": null
             },
             {
               "driver_id": "SAI",
@@ -1287,7 +1287,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0239,
               "podium_prob": 0.0881,
               "points_prob": 0.6174,
@@ -1306,18 +1306,18 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0108,
               "podium_prob": 0.0401,
               "points_prob": 0.3359,
               "expected_points": 2.07,
-              "actual_position": 11
+              "actual_position": null
             },
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0101,
               "podium_prob": 0.041,
               "points_prob": 0.3515,
@@ -1337,7 +1337,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0088,
               "podium_prob": 0.0325,
               "points_prob": 0.2912,
@@ -1357,7 +1357,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.004,
               "podium_prob": 0.0173,
               "points_prob": 0.158,
@@ -1397,7 +1397,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0005,
               "points_prob": 0.0034,
@@ -1416,13 +1416,13 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0,
               "podium_prob": 0.0,
               "points_prob": 0.0011,
               "expected_points": 0.01,
-              "actual_position": 17
+              "actual_position": null
             }
           ]
         },
@@ -1502,7 +1502,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0058,
               "podium_prob": 0.0251,
               "points_prob": 0.6503,
@@ -1512,7 +1512,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0035,
               "podium_prob": 0.0156,
               "points_prob": 0.4748,
@@ -1562,7 +1562,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0016,
               "podium_prob": 0.0072,
               "points_prob": 0.2683,
@@ -1571,18 +1571,18 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0009,
               "podium_prob": 0.0038,
               "points_prob": 0.1407,
               "expected_points": 0.62,
-              "actual_position": 11
+              "actual_position": null
             },
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0009,
               "podium_prob": 0.0041,
               "points_prob": 0.1563,
@@ -1622,7 +1622,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0,
               "podium_prob": 0.0001,
               "points_prob": 0.0054,
@@ -1631,13 +1631,13 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0,
               "podium_prob": 0.0001,
               "points_prob": 0.0068,
               "expected_points": 0.03,
-              "actual_position": 17
+              "actual_position": null
             },
             {
               "driver_id": "SAI",
@@ -1738,7 +1738,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0254,
               "podium_prob": 0.089,
               "points_prob": 0.6255,
@@ -1757,7 +1757,7 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0099,
               "podium_prob": 0.0391,
@@ -1768,7 +1768,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0096,
               "podium_prob": 0.0335,
               "points_prob": 0.2888,
@@ -1788,7 +1788,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.009,
               "podium_prob": 0.0333,
               "points_prob": 0.3025,
@@ -1818,7 +1818,7 @@
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0053,
               "podium_prob": 0.0201,
               "points_prob": 0.1863,
@@ -1858,7 +1858,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0005,
               "points_prob": 0.0041,
@@ -1867,13 +1867,13 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0,
               "podium_prob": 0.0001,
               "points_prob": 0.0013,
               "expected_points": 0.01,
-              "actual_position": 16
+              "actual_position": null
             },
             {
               "driver_id": "STR",
@@ -1963,7 +1963,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0114,
               "podium_prob": 0.0466,
               "points_prob": 0.6673,
@@ -1983,7 +1983,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0058,
               "podium_prob": 0.024,
               "points_prob": 0.4181,
@@ -2023,7 +2023,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0033,
               "podium_prob": 0.0132,
               "points_prob": 0.2686,
@@ -2032,7 +2032,7 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0021,
               "podium_prob": 0.0077,
@@ -2043,7 +2043,7 @@
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0018,
               "podium_prob": 0.008,
               "points_prob": 0.1623,
@@ -2062,18 +2062,18 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0002,
               "podium_prob": 0.0005,
               "points_prob": 0.0097,
               "expected_points": 0.04,
-              "actual_position": 16
+              "actual_position": null
             },
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0004,
               "points_prob": 0.0068,
@@ -2188,7 +2188,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0096,
               "podium_prob": 0.0413,
               "points_prob": 0.6596,
@@ -2228,7 +2228,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0043,
               "podium_prob": 0.0203,
               "points_prob": 0.3949,
@@ -2248,7 +2248,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0027,
               "podium_prob": 0.0117,
               "points_prob": 0.2731,
@@ -2257,7 +2257,7 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.002,
               "podium_prob": 0.0071,
@@ -2268,7 +2268,7 @@
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0016,
               "podium_prob": 0.0074,
               "points_prob": 0.1659,
@@ -2288,7 +2288,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0004,
               "points_prob": 0.0093,
@@ -2317,13 +2317,13 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0,
               "podium_prob": 0.0004,
               "points_prob": 0.0074,
               "expected_points": 0.04,
-              "actual_position": 16
+              "actual_position": null
             },
             {
               "driver_id": "STR",
@@ -2434,7 +2434,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0165,
               "podium_prob": 0.0572,
               "points_prob": 0.4506,
@@ -2443,18 +2443,18 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0115,
               "podium_prob": 0.0372,
               "points_prob": 0.3149,
               "expected_points": 1.91,
-              "actual_position": 12
+              "actual_position": null
             },
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0106,
               "podium_prob": 0.0346,
               "points_prob": 0.3005,
@@ -2474,7 +2474,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0097,
               "podium_prob": 0.0319,
               "points_prob": 0.2798,
@@ -2484,7 +2484,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0091,
               "podium_prob": 0.0326,
               "points_prob": 0.3008,
@@ -2544,7 +2544,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0005,
               "points_prob": 0.003,
@@ -2553,8 +2553,8 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0,
               "podium_prob": 0.0001,
               "points_prob": 0.0021,
@@ -2659,7 +2659,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0083,
               "podium_prob": 0.0359,
               "points_prob": 0.5462,
@@ -2669,7 +2669,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0077,
               "podium_prob": 0.0315,
               "points_prob": 0.4776,
@@ -2709,7 +2709,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0036,
               "podium_prob": 0.0114,
               "points_prob": 0.1929,
@@ -2718,18 +2718,18 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0031,
               "podium_prob": 0.0109,
               "points_prob": 0.1893,
               "expected_points": 0.92,
-              "actual_position": 12
+              "actual_position": null
             },
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0015,
               "podium_prob": 0.007,
               "points_prob": 0.1234,
@@ -2758,8 +2758,8 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0002,
               "podium_prob": 0.0005,
               "points_prob": 0.0126,
@@ -2779,7 +2779,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0005,
               "points_prob": 0.0061,
@@ -2874,7 +2874,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.009,
               "podium_prob": 0.0372,
               "points_prob": 0.5727,
@@ -2904,7 +2904,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0068,
               "podium_prob": 0.0285,
               "points_prob": 0.4951,
@@ -2934,7 +2934,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.004,
               "podium_prob": 0.0131,
               "points_prob": 0.2442,
@@ -2943,18 +2943,18 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0028,
               "podium_prob": 0.0105,
               "points_prob": 0.195,
               "expected_points": 0.98,
-              "actual_position": 12
+              "actual_position": null
             },
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0009,
               "podium_prob": 0.0034,
               "points_prob": 0.0653,
@@ -2984,7 +2984,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0004,
               "points_prob": 0.0059,
@@ -2993,8 +2993,8 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0002,
               "points_prob": 0.0069,
@@ -3120,7 +3120,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0215,
               "podium_prob": 0.0718,
               "points_prob": 0.5694,
@@ -3130,7 +3130,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0096,
               "podium_prob": 0.0366,
               "points_prob": 0.345,
@@ -3139,18 +3139,18 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0091,
               "podium_prob": 0.0311,
               "points_prob": 0.298,
               "expected_points": 1.64,
-              "actual_position": 13
+              "actual_position": null
             },
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0068,
               "podium_prob": 0.0233,
               "points_prob": 0.2181,
@@ -3170,7 +3170,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0053,
               "podium_prob": 0.0207,
               "points_prob": 0.2024,
@@ -3230,7 +3230,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0002,
               "podium_prob": 0.0005,
               "points_prob": 0.0035,
@@ -3249,13 +3249,13 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0004,
               "points_prob": 0.0032,
               "expected_points": 0.02,
-              "actual_position": 15
+              "actual_position": null
             }
           ]
         },
@@ -3345,7 +3345,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0081,
               "podium_prob": 0.0339,
               "points_prob": 0.5044,
@@ -3365,7 +3365,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0065,
               "podium_prob": 0.0286,
               "points_prob": 0.4345,
@@ -3395,7 +3395,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0047,
               "podium_prob": 0.02,
               "points_prob": 0.3348,
@@ -3404,18 +3404,18 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0046,
               "podium_prob": 0.0186,
               "points_prob": 0.3019,
               "expected_points": 1.55,
-              "actual_position": 13
+              "actual_position": null
             },
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0011,
               "podium_prob": 0.005,
               "points_prob": 0.0948,
@@ -3455,7 +3455,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0002,
               "podium_prob": 0.0005,
               "points_prob": 0.0075,
@@ -3464,13 +3464,13 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0007,
               "points_prob": 0.0111,
               "expected_points": 0.05,
-              "actual_position": 15
+              "actual_position": null
             },
             {
               "driver_id": "SAI",
@@ -3492,8 +3492,8 @@
       "circuit": "Circuit de Barcelona-Catalunya",
       "race_date": "2026-06-14",
       "has_sprint": false,
-      "completed": false,
-      "actual_winner": null,
+      "completed": true,
+      "actual_winner": "hamilton",
       "cutoffs": {
         "post-q": {
           "generated_at": "2026-06-12",
@@ -3506,7 +3506,7 @@
               "podium_prob": 0.5797,
               "points_prob": 0.9981,
               "expected_points": 15.24,
-              "actual_position": null
+              "actual_position": 16
             },
             {
               "driver_id": "RUS",
@@ -3516,7 +3516,7 @@
               "podium_prob": 0.5393,
               "points_prob": 0.9969,
               "expected_points": 14.59,
-              "actual_position": null
+              "actual_position": 2
             },
             {
               "driver_id": "HAM",
@@ -3526,7 +3526,7 @@
               "podium_prob": 0.3406,
               "points_prob": 0.9776,
               "expected_points": 11.21,
-              "actual_position": null
+              "actual_position": 1
             },
             {
               "driver_id": "NOR",
@@ -3536,7 +3536,7 @@
               "podium_prob": 0.2909,
               "points_prob": 0.9607,
               "expected_points": 10.17,
-              "actual_position": null
+              "actual_position": 3
             },
             {
               "driver_id": "PIA",
@@ -3546,7 +3546,7 @@
               "podium_prob": 0.2905,
               "points_prob": 0.9617,
               "expected_points": 10.19,
-              "actual_position": null
+              "actual_position": 5
             },
             {
               "driver_id": "LEC",
@@ -3556,7 +3556,7 @@
               "podium_prob": 0.2701,
               "points_prob": 0.9528,
               "expected_points": 9.72,
-              "actual_position": null
+              "actual_position": 15
             },
             {
               "driver_id": "VER",
@@ -3566,7 +3566,7 @@
               "podium_prob": 0.2628,
               "points_prob": 0.9482,
               "expected_points": 9.53,
-              "actual_position": null
+              "actual_position": 4
             },
             {
               "driver_id": "HAD",
@@ -3576,21 +3576,21 @@
               "podium_prob": 0.1834,
               "points_prob": 0.8873,
               "expected_points": 7.55,
-              "actual_position": null
+              "actual_position": 6
             },
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.016,
               "podium_prob": 0.0536,
               "points_prob": 0.4726,
               "expected_points": 2.74,
-              "actual_position": null
+              "actual_position": 7
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0098,
               "podium_prob": 0.0315,
@@ -3601,12 +3601,12 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0094,
               "podium_prob": 0.0327,
               "points_prob": 0.3206,
               "expected_points": 1.75,
-              "actual_position": null
+              "actual_position": 8
             },
             {
               "driver_id": "BOR",
@@ -3616,27 +3616,27 @@
               "podium_prob": 0.0284,
               "points_prob": 0.272,
               "expected_points": 1.5,
-              "actual_position": null
+              "actual_position": 11
             },
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0078,
               "podium_prob": 0.0289,
               "points_prob": 0.2849,
               "expected_points": 1.55,
-              "actual_position": null
+              "actual_position": 9
             },
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0074,
               "podium_prob": 0.0234,
               "points_prob": 0.2246,
               "expected_points": 1.24,
-              "actual_position": null
+              "actual_position": 10
             },
             {
               "driver_id": "BEA",
@@ -3646,7 +3646,7 @@
               "podium_prob": 0.0172,
               "points_prob": 0.1633,
               "expected_points": 0.9,
-              "actual_position": null
+              "actual_position": 17
             },
             {
               "driver_id": "OCO",
@@ -3656,7 +3656,7 @@
               "podium_prob": 0.0116,
               "points_prob": 0.1155,
               "expected_points": 0.62,
-              "actual_position": null
+              "actual_position": 13
             },
             {
               "driver_id": "SAI",
@@ -3666,7 +3666,7 @@
               "podium_prob": 0.0078,
               "points_prob": 0.0891,
               "expected_points": 0.45,
-              "actual_position": null
+              "actual_position": 12
             },
             {
               "driver_id": "ALB",
@@ -3691,7 +3691,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0003,
               "points_prob": 0.0041,
@@ -3700,8 +3700,8 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0001,
               "podium_prob": 0.0004,
               "points_prob": 0.0042,
@@ -3731,7 +3731,7 @@
               "podium_prob": 0.7069,
               "points_prob": 0.9993,
               "expected_points": 17.15,
-              "actual_position": null
+              "actual_position": 15
             },
             {
               "driver_id": "HAM",
@@ -3741,7 +3741,7 @@
               "podium_prob": 0.4805,
               "points_prob": 0.9921,
               "expected_points": 13.64,
-              "actual_position": null
+              "actual_position": 1
             },
             {
               "driver_id": "RUS",
@@ -3751,7 +3751,7 @@
               "podium_prob": 0.4334,
               "points_prob": 0.9865,
               "expected_points": 12.89,
-              "actual_position": null
+              "actual_position": 2
             },
             {
               "driver_id": "ANT",
@@ -3761,7 +3761,7 @@
               "podium_prob": 0.3078,
               "points_prob": 0.9601,
               "expected_points": 10.65,
-              "actual_position": null
+              "actual_position": 16
             },
             {
               "driver_id": "VER",
@@ -3771,7 +3771,7 @@
               "podium_prob": 0.2865,
               "points_prob": 0.9459,
               "expected_points": 10.12,
-              "actual_position": null
+              "actual_position": 4
             },
             {
               "driver_id": "PIA",
@@ -3781,7 +3781,7 @@
               "podium_prob": 0.151,
               "points_prob": 0.7925,
               "expected_points": 6.47,
-              "actual_position": null
+              "actual_position": 5
             },
             {
               "driver_id": "NOR",
@@ -3791,7 +3791,7 @@
               "podium_prob": 0.1469,
               "points_prob": 0.7792,
               "expected_points": 6.3,
-              "actual_position": null
+              "actual_position": 3
             },
             {
               "driver_id": "OCO",
@@ -3801,7 +3801,7 @@
               "podium_prob": 0.1227,
               "points_prob": 0.712,
               "expected_points": 5.46,
-              "actual_position": null
+              "actual_position": 13
             },
             {
               "driver_id": "HAD",
@@ -3811,27 +3811,27 @@
               "podium_prob": 0.075,
               "points_prob": 0.5464,
               "expected_points": 3.72,
-              "actual_position": null
+              "actual_position": 6
             },
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0194,
               "podium_prob": 0.07,
               "points_prob": 0.5185,
               "expected_points": 3.48,
-              "actual_position": null
+              "actual_position": 7
             },
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0164,
               "podium_prob": 0.0584,
               "points_prob": 0.446,
               "expected_points": 2.93,
-              "actual_position": null
+              "actual_position": 10
             },
             {
               "driver_id": "BEA",
@@ -3841,11 +3841,11 @@
               "podium_prob": 0.0473,
               "points_prob": 0.3617,
               "expected_points": 2.35,
-              "actual_position": null
+              "actual_position": 17
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0101,
               "podium_prob": 0.0366,
@@ -3861,27 +3861,27 @@
               "podium_prob": 0.0305,
               "points_prob": 0.2527,
               "expected_points": 1.57,
-              "actual_position": null
+              "actual_position": 11
             },
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.004,
               "podium_prob": 0.0161,
               "points_prob": 0.1429,
               "expected_points": 0.85,
-              "actual_position": null
+              "actual_position": 8
             },
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0027,
               "podium_prob": 0.0115,
               "points_prob": 0.097,
               "expected_points": 0.57,
-              "actual_position": null
+              "actual_position": 9
             },
             {
               "driver_id": "ALO",
@@ -3905,8 +3905,8 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0007,
               "podium_prob": 0.0025,
               "points_prob": 0.0236,
@@ -3926,7 +3926,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0003,
               "podium_prob": 0.001,
               "points_prob": 0.0102,
@@ -3941,7 +3941,7 @@
               "podium_prob": 0.0007,
               "points_prob": 0.0066,
               "expected_points": 0.04,
-              "actual_position": null
+              "actual_position": 12
             }
           ]
         }
@@ -4052,7 +4052,7 @@
             {
               "driver_id": "GAS",
               "display_name": "Gasly",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0137,
               "podium_prob": 0.0464,
               "points_prob": 0.4087,
@@ -4062,7 +4062,7 @@
             {
               "driver_id": "COL",
               "display_name": "Colapinto",
-              "team": "alpine",
+              "team": "alpine_f1_team",
               "win_prob": 0.0136,
               "podium_prob": 0.0489,
               "points_prob": 0.4021,
@@ -4071,7 +4071,7 @@
             },
             {
               "driver_id": "HUL",
-              "display_name": "Hulkenberg",
+              "display_name": "Hülkenberg",
               "team": "audi",
               "win_prob": 0.0121,
               "podium_prob": 0.0428,
@@ -4102,7 +4102,7 @@
             {
               "driver_id": "LAW",
               "display_name": "Lawson",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0044,
               "podium_prob": 0.0161,
               "points_prob": 0.1477,
@@ -4112,7 +4112,7 @@
             {
               "driver_id": "LIN",
               "display_name": "Lindblad",
-              "team": "rb",
+              "team": "rb_f1_team",
               "win_prob": 0.0027,
               "podium_prob": 0.01,
               "points_prob": 0.1001,
@@ -4141,8 +4141,8 @@
             },
             {
               "driver_id": "PER",
-              "display_name": "Perez",
-              "team": "cadillac",
+              "display_name": "Pérez",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0006,
               "podium_prob": 0.0029,
               "points_prob": 0.0287,
@@ -4162,7 +4162,7 @@
             {
               "driver_id": "BOT",
               "display_name": "Bottas",
-              "team": "cadillac",
+              "team": "cadillac_f1_team",
               "win_prob": 0.0002,
               "podium_prob": 0.001,
               "points_prob": 0.0119,
