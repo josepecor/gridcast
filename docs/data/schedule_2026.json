@@ -72,7 +72,7 @@
       "circuit_name": "Red Bull Ring",
       "date": "2026-06-28",
       "has_sprint": false,
-      "completed": false
+      "completed": true
     },
     {
       "round": 9,
