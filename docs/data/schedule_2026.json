@@ -81,7 +81,7 @@
       "circuit_name": "Silverstone Circuit",
       "date": "2026-07-05",
       "has_sprint": true,
-      "completed": false
+      "completed": true
     },
     {
       "round": 10,
