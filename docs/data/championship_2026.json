@@ -1,51 +1,51 @@
 {
-  "as_of_round": 9,
+  "as_of_round": 10,
   "driver_title_probs": [
     {
       "entity_id": "antonelli",
-      "value": 0.5699,
+      "value": 0.7083333333333334,
       "display_name": "Antonelli",
       "team": "mercedes"
     },
     {
       "entity_id": "russell",
-      "value": 0.2659666666666667,
+      "value": 0.16296666666666668,
       "display_name": "Russell",
       "team": "mercedes"
     },
     {
       "entity_id": "hamilton",
-      "value": 0.10606666666666667,
+      "value": 0.09176666666666666,
       "display_name": "Hamilton",
       "team": "ferrari"
     },
     {
       "entity_id": "leclerc",
-      "value": 0.03326666666666667,
+      "value": 0.027333333333333334,
       "display_name": "Leclerc",
       "team": "ferrari"
     },
     {
       "entity_id": "norris",
-      "value": 0.0134,
+      "value": 0.006366666666666666,
       "display_name": "Norris",
       "team": "mclaren"
     },
     {
       "entity_id": "piastri",
-      "value": 0.0066,
+      "value": 0.0032333333333333333,
       "display_name": "Piastri",
       "team": "mclaren"
     },
     {
       "entity_id": "max_verstappen",
-      "value": 0.004,
+      "value": 0.0,
       "display_name": "Verstappen",
       "team": "red_bull"
     },
     {
       "entity_id": "hadjar",
-      "value": 0.0008,
+      "value": 0.0,
       "display_name": "Hadjar",
       "team": "red_bull"
     },
@@ -53,31 +53,31 @@
       "entity_id": "gasly",
       "value": 0.0,
       "display_name": "Gasly",
-      "team": "alpine"
+      "team": "alpine_f1_team"
     },
     {
       "entity_id": "lawson",
       "value": 0.0,
       "display_name": "Lawson",
-      "team": "rb"
+      "team": "rb_f1_team"
     },
     {
       "entity_id": "arvid_lindblad",
       "value": 0.0,
       "display_name": "Lindblad",
-      "team": "rb"
+      "team": "rb_f1_team"
+    },
+    {
+      "entity_id": "colapinto",
+      "value": 0.0,
+      "display_name": "Colapinto",
+      "team": "alpine_f1_team"
     },
     {
       "entity_id": "bearman",
       "value": 0.0,
       "display_name": "Bearman",
       "team": "haas"
-    },
-    {
-      "entity_id": "colapinto",
-      "value": 0.0,
-      "display_name": "Colapinto",
-      "team": "alpine"
     },
     {
       "entity_id": "bortoleto",
@@ -113,19 +113,19 @@
       "entity_id": "hulkenberg",
       "value": 0.0,
       "display_name": "Hulkenberg",
-      "team": "audi"
+      "team": "unknown"
     },
     {
       "entity_id": "bottas",
       "value": 0.0,
       "display_name": "Bottas",
-      "team": "cadillac"
+      "team": "cadillac_f1_team"
     },
     {
       "entity_id": "perez",
       "value": 0.0,
       "display_name": "Perez",
-      "team": "cadillac"
+      "team": "unknown"
     },
     {
       "entity_id": "stroll",
@@ -137,19 +137,19 @@
   "constructor_title_probs": [
     {
       "entity_id": "mercedes",
-      "value": 0.8959666666666667
+      "value": 0.9032666666666667
     },
     {
       "entity_id": "ferrari",
-      "value": 0.09606666666666666
+      "value": 0.0933
     },
     {
       "entity_id": "mclaren",
-      "value": 0.007366666666666666
+      "value": 0.0034333333333333334
     },
     {
       "entity_id": "red_bull",
-      "value": 0.0006
+      "value": 0.0
     },
     {
       "entity_id": "alpine",
@@ -183,91 +183,91 @@
   "driver_expected_points": [
     {
       "entity_id": "antonelli",
-      "value": 343.3244666666667
+      "value": 354.7527
     },
     {
       "entity_id": "russell",
-      "value": 309.4208
+      "value": 297.4963333333333
     },
     {
       "entity_id": "hamilton",
-      "value": 277.7909
+      "value": 279.70816666666667
     },
     {
       "entity_id": "leclerc",
-      "value": 239.62343333333334
+      "value": 247.89503333333334
     },
     {
       "entity_id": "norris",
-      "value": 216.2898
+      "value": 214.0274
     },
     {
       "entity_id": "piastri",
-      "value": 202.53713333333334
+      "value": 203.87086666666667
     },
     {
       "entity_id": "max_verstappen",
-      "value": 191.80556666666666
-    },
-    {
-      "entity_id": "hadjar",
-      "value": 154.43763333333334
+      "value": 129.24476666666666
     },
     {
       "entity_id": "gasly",
-      "value": 95.42543333333333
+      "value": 92.4498
+    },
+    {
+      "entity_id": "hadjar",
+      "value": 92.1128
     },
     {
       "entity_id": "lawson",
-      "value": 90.5549
-    },
-    {
-      "entity_id": "arvid_lindblad",
-      "value": 62.84173333333333
-    },
-    {
-      "entity_id": "bortoleto",
-      "value": 45.0899
-    },
-    {
-      "entity_id": "bearman",
-      "value": 44.127
-    },
-    {
-      "entity_id": "colapinto",
-      "value": 43.148266666666665
-    },
-    {
-      "entity_id": "hulkenberg",
-      "value": 42.80616666666667
-    },
-    {
-      "entity_id": "sainz",
-      "value": 25.8953
-    },
-    {
-      "entity_id": "ocon",
-      "value": 23.287466666666667
-    },
-    {
-      "entity_id": "albon",
-      "value": 18.564766666666667
-    },
-    {
-      "entity_id": "alonso",
-      "value": 3.6326
-    },
-    {
-      "entity_id": "bottas",
-      "value": 2.9453
+      "value": 77.64093333333334
     },
     {
       "entity_id": "perez",
-      "value": 2.876333333333333
+      "value": 77.35356666666667
+    },
+    {
+      "entity_id": "hulkenberg",
+      "value": 77.0127
+    },
+    {
+      "entity_id": "arvid_lindblad",
+      "value": 53.91373333333333
+    },
+    {
+      "entity_id": "bortoleto",
+      "value": 47.465833333333336
+    },
+    {
+      "entity_id": "bearman",
+      "value": 43.0353
+    },
+    {
+      "entity_id": "colapinto",
+      "value": 42.980266666666665
+    },
+    {
+      "entity_id": "bottas",
+      "value": 36.4337
+    },
+    {
+      "entity_id": "sainz",
+      "value": 25.1432
+    },
+    {
+      "entity_id": "ocon",
+      "value": 22.523833333333332
+    },
+    {
+      "entity_id": "albon",
+      "value": 17.9843
+    },
+    {
+      "entity_id": "alonso",
+      "value": 3.4906333333333333
     },
     {
       "entity_id": "stroll",
-      "value": 1.5751
+      "value": 1.4641333333333333
     }
   ]
 }
